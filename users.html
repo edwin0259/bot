@@ -6,19 +6,71 @@
   </head>
   <body>
     <a href="index.html">Home</a>
+    <div class="sort">
+      <h3>Sort Stats</h3>
+      <button id="ls">Last Seen (Oldest to Newest)</button>
+      <button id="w">Wins</button>
+      <button id="tg">Total grabs (recieved)</button>
+    </div>
     <pre class="content">
       Loading..
     </pre>
   </body>
   <script>
+    var content = document.querySelector(".content");
+    var sort = document.querySelector(".sort");
+    var ls = document.getElementById("ls");
+    var w = document.getElementById("w");
+    var tg = document.getElementById("tg");
+    sort.style.display = "none";
+    var stats;
+
     var client = new XMLHttpRequest();
     client.open('Get', './users.json')
     client.onreadystatechange = function() {
-      var content = document.querySelector(".content");
+      stats = JSON.parse(client.responseText);
       content.innerText = "";
-      document.querySelector(".content").append(JSON.stringify(JSON.parse(client.responseText), null, 2))
+      content.append(JSON.stringify(stats, null, 2))
     }
     client.send();
+
+    ls.addEventListener("click", function() {
+      var lastSeenKeys = Object.keys(stats).sort((a, b) => {
+          return stats[b].lastSeen - stats[a].lastSeen
+      })
+      var final = {};
+      for(x = 0; x < lastSeenKeys.length; x++) {
+        final[lastSeenKeys[x]] = stats[lastSeenKeys[x]];
+      }
+
+      content.innerText = "";
+      content.append(JSON.stringify(final, null, 2));
+    });
+
+    w.addEventListener("click", function() {
+      var topWinKeys = Object.keys(stats).sort((a, b) => {
+          return stats[b].wins - stats[a].wins
+      })
+      var final = {};
+      for(x = 0; x < topWinKeys.length; x++) {
+        final[topWinKeys[x]] = stats[topWinKeys[x]];
+      }
+      content.innerText = "";
+      content.append(JSON.stringify(final, null, 2));
+    });
+
+    tg.addEventListener("click", function() {
+      let topTopGrabKeys = Object.keys(stats).sort((a, b) => {
+          return stats[b].totalGrabs - stats[a].totalGrabs
+      })
+
+      var final = {};
+      for(x = 0; x < topTopGrabKeys.length; x++) {
+        final[topTopGrabKeys[x]] = stats[topTopGrabKeys[x]];
+      }
+      content.innerText = "";
+      content.append(JSON.stringify(final, null, 2));
+    })
     //body.append(guestbook, null, 2);
   </script>
 </html>

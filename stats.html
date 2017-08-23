@@ -44,7 +44,7 @@
       }
       content.innerText = "";
       content.append(JSON.stringify(final, null, 2));
-    })
+    });
 
     mg.addEventListener("click", function() {
       var topGrabbedKeys = Object.keys(stats).sort((a, b) => {
@@ -53,6 +53,19 @@
       var final = {};
       for(x = 0; x < topGrabbedKeys.length; x++) {
         final[topGrabbedKeys[x]] = stats[topGrabbedKeys[x]];
+      }
+      content.innerText = "";
+      content.append(JSON.stringify(final, null, 2));
+    });
+
+    hp.addEventListener("click", function() {
+      let topHotPlayedKeys = Object.keys(stats).sort((a, b) => {
+          return stats[b].mostGrabs - stats[a].mostGrabs
+      })
+
+      var final = {};
+      for(x = 0; x < topHotPlayedKeys.length; x++) {
+        final[topHotPlayedKeys[x]] = stats[topHotPlayedKeys[x]];
       }
       content.innerText = "";
       content.append(JSON.stringify(final, null, 2));

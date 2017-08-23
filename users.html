@@ -31,6 +31,7 @@
       stats = JSON.parse(client.responseText);
       content.innerText = "";
       content.append(JSON.stringify(stats, null, 2))
+      sort.style.display = "block";
     }
     client.send();
 

@@ -2,23 +2,60 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Guestbook</title>
+    <title>Stats</title>
   </head>
   <body>
     <a href="index.html">Home</a>
+    <div class="sort">
+      <h3>Sort Stats</h3>
+      <button id="mp">Most played</button>
+      <button id="mg">Most grabbed</button>
+      <button id="hp">Hot plays</button>
+    </div>
     <pre class="content">
       Loading..
     </pre>
   </body>
   <script>
+    var content = document.querySelector(".content");
+    var sort = document.querySelector(".sort");
+    var mp = document.getElementById("mp");
+    var mg = document.getElementById("mg");
+    var hp = document.getElementById("hp");
+    sort.style.display = "none";
+    var stats;
     var client = new XMLHttpRequest();
-    client.open('Get', './stats.json')
+    client.open('Get', './stats.json');
     client.onreadystatechange = function() {
-      let content = document.querySelector(".content");
       content.innerText = "";
-      document.querySelector(".content").append(JSON.stringify(JSON.parse(client.responseText), null, 2))
+      stats = JSON.parse(client.responseText);
+      content.append(JSON.stringify(stats, null, 2));
+      sort.style.display = "block";
     }
     client.send();
-    //body.append(guestbook, null, 2);
+    
+    mp.addEventListener("click", function() {
+      var topPlayedKeys = Object.keys(stats).sort((a, b) => {
+          return stats[b].count - stats[a].count
+      })
+      var final = {};
+      for(x = 0; x < topPlayedKeys.length; x++) {
+        final[topPlayedKeys[x]] = stats[topPlayedKeys[x]];
+      }
+      content.innerText = "";
+      content.append(JSON.stringify(final, null, 2));
+    })
+
+    mg.addEventListener("click", function() {
+      var topGrabbedKeys = Object.keys(stats).sort((a, b) => {
+          return stats[b].totalGrabs - stats[a].totalGrabs
+      })
+      var final = {};
+      for(x = 0; x < topGrabbedKeys.length; x++) {
+        final[topGrabbedKeys[x]] = stats[topGrabbedKeys[x]];
+      }
+      content.innerText = "";
+      content.append(JSON.stringify(final, null, 2));
+    })
   </script>
 </html>

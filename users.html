@@ -36,8 +36,9 @@
     client.send();
 
     ls.addEventListener("click", function() {
+      
       var lastSeenKeys = Object.keys(stats).sort((a, b) => {
-          return stats[b].lastSeen - stats[a].lastSeen
+          return stats[b].lastSeen < stats[a].lastSeen
       })
       var final = {};
       for(x = 0; x < lastSeenKeys.length; x++) {
@@ -61,6 +62,9 @@
     });
 
     tg.addEventListener("click", function() {
+      stats = stats.map(user => {
+        user.totalGrabs = user.totalGrabs || 0;
+      })
       let topTopGrabKeys = Object.keys(stats).sort((a, b) => {
           return stats[b].totalGrabs - stats[a].totalGrabs
       })

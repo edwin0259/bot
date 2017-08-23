@@ -62,7 +62,7 @@
     });
 
     tg.addEventListener("click", function() {
-      stats = Object.keys(stats).map(user => {
+      Object.keys(stats).map(user => {
         stats[user].totalGrabs = stats[user].totalGrabs || 0;
       })
       let topTopGrabKeys = Object.keys(stats).sort((a, b) => {

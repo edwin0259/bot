@@ -1,0 +1,5 @@
+node_modules
+bot.js
+composerArray.js
+songsQueued.txt
+package-lock.json

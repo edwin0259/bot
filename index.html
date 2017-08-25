@@ -12,6 +12,7 @@
   </body>
   <script>
     var date = document.getElementById("date");
+    var client = new XMLHttpRequest();
     client.open('Get', './date.json');
     client.onreadystatechange = function() {
       content.innerText = "";

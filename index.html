@@ -15,7 +15,6 @@
     var client = new XMLHttpRequest();
     client.open('Get', './date.json');
     client.onreadystatechange = function() {
-      content.innerText = "";
       stats = JSON.parse(client.responseText);
       date.innerText = stats.date;
     }

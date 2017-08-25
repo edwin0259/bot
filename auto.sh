@@ -7,5 +7,5 @@ git add -A
 git commit -m "update stats"
 echo "Pushing.."
 git push https://github.com/edwin0259/bot.git;
-sleep 2;
+sleep 3600;
 done;

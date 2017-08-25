@@ -3,6 +3,7 @@
 while true;
 do
 cd C:\projects\bot
+echo "{date: \"$(date)\"}" >| date.json
 git add -A 
 git commit -m "update stats"
 echo "Pushing.."

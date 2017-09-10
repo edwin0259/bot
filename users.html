@@ -28,9 +28,9 @@
     client.open('Get', './users.json')
     client.onreadystatechange = function() {
       stats = JSON.parse(client.responseText);
-      stats.forEach(x => {
+      for(x in stats) {
         delete x[lastSeen];
-      })
+      }
       content.innerText = "";
       content.append(JSON.stringify(stats, null, 2))
       sort.style.display = "block";

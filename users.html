@@ -8,7 +8,6 @@
     <a href="index.html">Home</a>
     <div class="sort">
       <h3>Sort Stats</h3>
-      <button id="ls">Last Seen (Oldest to Newest)</button>
       <button id="w">Wins</button>
       <button id="tg">Total grabs (recieved)</button>
     </div>
@@ -19,7 +18,7 @@
   <script>
     var content = document.querySelector(".content");
     var sort = document.querySelector(".sort");
-    var ls = document.getElementById("ls");
+    //var ls = document.getElementById("ls");
     var w = document.getElementById("w");
     var tg = document.getElementById("tg");
     sort.style.display = "none";
@@ -29,13 +28,16 @@
     client.open('Get', './users.json')
     client.onreadystatechange = function() {
       stats = JSON.parse(client.responseText);
+      stats.forEach(x => {
+        delete x[lastSeen];
+      })
       content.innerText = "";
       content.append(JSON.stringify(stats, null, 2))
       sort.style.display = "block";
     }
     client.send();
 
-    ls.addEventListener("click", function() {
+    /*ls.addEventListener("click", function() {
       
       var lastSeenKeys = Object.keys(stats).sort((a, b) => {
           return (stats[a].lastSeen < stats[b].lastSeen) ? -1 : ((stats[a].lastSeen > stats[b].lastSeen) ? 1 : 0);
@@ -47,7 +49,7 @@
 
       content.innerText = "";
       content.append(JSON.stringify(final, null, 2));
-    });
+    });*/
 
     w.addEventListener("click", function() {
       var topWinKeys = Object.keys(stats).sort((a, b) => {

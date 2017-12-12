@@ -29,9 +29,9 @@
     client.onreadystatechange = function() {
       content.innerText = "";
       stats = JSON.parse(client.responseText);
-      
+
       for(stat in stats) {
-        content.append(JSON.stringify(stat, null, 2));
+        content.append(JSON.stringify(stats[stat], null, 2) + "\n");
       }
       
       sort.style.display = "block";

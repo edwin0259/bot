@@ -3,3 +3,4 @@ bot.js
 composerArray.js
 songsQueued.txt
 package-lock.json
+bot-commands

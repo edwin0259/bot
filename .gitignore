@@ -1,6 +1,7 @@
 node_modules
-bot.js
+keys.json
 composerArray.js
 songsQueued.txt
 package-lock.json
 bot-commands
+testingDB.js

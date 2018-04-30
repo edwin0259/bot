@@ -105,8 +105,9 @@ function main(youtubeKey, dbPassword, botPassword) {
                 let {id, name, type, fkid} = bot.getMedia();
                 
                 if (currentId != id) {
+                    console.log("NEW SONG")
                     if(currentId) {
-                        logSong(JSON.parse(JSON.stringify(currentSong)), JSON.parse(JSON.stringify(currentDJ)));
+                        updateSong(JSON.parse(JSON.stringify(currentSong)), JSON.parse(JSON.stringify(currentDJ)))
                     }
                     currentSong.id = id;
                     currentSong.name = name;
@@ -119,13 +120,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                     
                     bot.updub();
                     currentId = id;
-                    /*fs.readFile('./blacklist.json',"utf8", (err, data) => {
-                        let songs = JSON.parse(data);
-                        if(songs[id]) {
-                            bot.sendChat("This song is on the blacklist, skipping..");
-                            bot.moderateSkip();
-                        }
-                    })*/
+
                     setTimeout(() => {shouldUpDub()}, +bot.getTimeRemaining());
                 } else {
                     setTimeout(() => {shouldUpDub()}, +bot.getTimeRemaining());
@@ -177,7 +172,30 @@ function main(youtubeKey, dbPassword, botPassword) {
             })
         }
 
-
+        function updateSong(songObj, djObj, callback=null) {
+            let [djName, dj, djRole] = [djObj.username, djObj.id, djObj.role];
+            let {id, name, type, fkid} = songObj;
+            let tgs = totalGrabs;
+            totalGrabs = 0;
+            console.log(`ID: ${id}`)
+            connection.query(`SELECT * FROM songs WHERE id="${id}"`, (err, res, fields) => {
+                if(res.length != 0) {
+                    plays = res[0].plays;
+                    mostGrabs = (tgs > res[0].mostGrabs) ? tgs : res[0].mostGrabs;
+                    
+                    tgs += res[0].totalGrabs;
+                    connection.query(`UPDATE songs SET plays=${plays + 1}, totalGrabs=${tgs}, mostGrabs=${mostGrabs} WHERE id="${id}"`)
+                } else {
+                    queryString = `INSERT INTO songs VALUES("${id}", 0, ${tgs}, "${name.replace(/"/g, '\\"')}", "${type}", "${fkid}", ${tgs})`;
+                    console.log(queryString);
+                    connection.query(queryString)
+                    if(callback != null) {
+                        callback(id, false, true)
+                    }
+                }
+            });
+            
+        }
 
         let times = [3000000, 3600000, 2400000];
         let time = times[Math.floor(Math.random() * times.length)];
@@ -206,6 +224,28 @@ function main(youtubeKey, dbPassword, botPassword) {
                 })
             })
         }
+
+        function getStats(id, idSelected, updated=false) {
+            let {currentId} = bot.getMedia();
+            connection.query(`SELECT * FROM songs WHERE id="${id}"`, (err, res, fields) => {
+                try {
+                    if(res.length == 0 && !updated) {
+                        bot.sendChat("_First time being played!_");
+                        updateSong(JSON.parse(JSON.stringify(currentSong)), JSON.parse(JSON.stringify(currentDJ)), getStats)
+                    } else {
+                        bot.sendChat(res[0].name);
+                        plays = (idSelected) ? res[0].plays : res[0].plays + 1;
+                        try {
+                            bot.sendChat(`Total grabs: ${res[0].totalGrabs + totalGrabs}, Times played: ${plays}`)
+                        } catch(err) {
+                            bot.sendChat(`song stats: total grabs - ${res[0].totalGrabs}, times played: - ${plays}.`)
+                        }
+                    }
+                } catch(err) {
+                    bot.sendChat("Song was not found.");
+                }
+            });
+        }
         
         function respondToMessage(message, user, cid) {
             let bot_response = false;
@@ -217,40 +257,32 @@ function main(youtubeKey, dbPassword, botPassword) {
                 } 
                 return false;
             }
-            
-            if(message == "!stats") {
+
+            if(message == "!count" && user == "edwin0259") {
+                connection.query("SELECT COUNT(*) AS COUNT FROM songs", (err, res, fields) => {
+                    console.log(res[0].COUNT)
+                    bot.sendChat(JSON.stringify(res[0].COUNT));
+                })
+            }
+
+            if(message.includes("!stats") && user != "maestroBot") {
                 let {id, name, type, fkid} = bot.getMedia();
 
-                //id = "5650f711dd32dc14005f5d2a"
-                console.log(`ID: ${id}`);
-    
+                idSelected = false;
+                if(message.includes("id")) {
+                    message = message.split(' ');
+                    id = message[message.length - 1];
+                    idSelected = true;
+                }
 
-                connection.query(`SELECT * FROM songs WHERE id="${id}"`, (err, res, fields) => {
-                    
-                    try {
-                        bot.sendChat(res[0].name);
-                        bot.sendChat(`song stats: total grabs - ${res[0].totalGrabs}, times played: - ${res[0].plays}.`)
-                    } catch(err) {
-                        bot.sendChat("Song was not found.");
-                    }
-                        
-                    //console.log(fields.RowDataPacket)
-                });
-                /*
-                if(typeof songStats == "undefined") {
-                    bot.sendChat("Try again next song.");
-                } else {
-                    // song stats: total grabs - ${songStats.totalGrabs + bot.getScore().grabs}, < This is causing an error, figure out how to fix it 
-                    bot.sendChat(`song stats: total grabs - ${songStats.totalGrabs + bot.getScore().grabs}, times played: - ${songStats.count }.`)
-                }*/
-                
+                //bot.sendChat(`ID: ${id}`);
+
+                getStats(id, idSelected);
             }
             
             if(message == "!topgrabbed") {
                 bot.sendChat('Most grabbed songs (total grabs):');
                 connection.query(`SELECT * FROM songs ORDER BY totalGrabs DESC LIMIT 3`, (err, res, fields) => {
-                    console.log(err)
-                    
                     try {
                         console.log(res)
                         res.forEach(item => {
@@ -258,30 +290,15 @@ function main(youtubeKey, dbPassword, botPassword) {
                         })
                     } catch(err) {
                         console.log(err);
-                        //bot.sendChat("Something went wrong! Check logs");
                     }
-                        
-                    //console.log(fields.RowDataPacket)
                 });
-                /*
-                fs.readFile('./tempStats.json',"utf8", (err, data) => {
-                    let stats = JSON.parse(data);
-                    let topGrabbedKeys = Object.keys(stats).sort((a, b) => {
-                        return stats[b].totalGrabs - stats[a].totalGrabs
-                    })
-                    bot.sendChat('Most grabbed songs (total grabs):');
-                    //let message = "";
-                    for(let x = 0; x < 3; x++) {
-                        bot.sendChat(`${stats[topGrabbedKeys[x]].name} - ${stats[topGrabbedKeys[x]].totalGrabs}`);
-                    }
-                })*/
             }
+            
+            
 
             if(message == "!hotplays") {
                 bot.sendChat('Most grabbed songs (single play):');
                 connection.query(`SELECT * FROM songs ORDER BY mostGrabs DESC LIMIT 3`, (err, res, fields) => {
-                    console.log(err)
-                    
                     try {
                         console.log(res)
                         res.forEach(item => {
@@ -289,24 +306,8 @@ function main(youtubeKey, dbPassword, botPassword) {
                         })
                     } catch(err) {
                         console.log(err);
-                        //bot.sendChat("Something went wrong! Check logs");
                     }
-                        
-                    //console.log(fields.RowDataPacket)
                 });
-                /*
-                fs.readFile('./tempStats.json',"utf8", (err, data) => {
-                    let stats = JSON.parse(data);
-                    let topGrabbedKeys = Object.keys(stats).sort((a, b) => {
-                        return stats[b].mostGrabs - stats[a].mostGrabs
-                    })
-                    bot.sendChat('Most grabbed songs (single play):');
-                    //let message = "";
-                    for(let x = 0; x < 3; x++) {
-                        bot.sendChat(`${stats[topGrabbedKeys[x]].name} - ${stats[topGrabbedKeys[x]].mostGrabs}`);
-                    }
-                    
-                })*/
             }
 
             if(message == "!info") {
@@ -338,14 +339,16 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
             
             if(message == "!commands" || message == "!help") {
-                bot.sendChat("Commands are: !stats, !sign, !mostplayed, !topgrabbed, !hotplays, !winners, !info, !afk, !lastseen");
+                bot.sendChat("Commands are: !stats, !sign, !mostplayed, !topgrabbed, !hotplays, !winners, !info, !afk, !lastseen, !suggestion, !issue");
+            }
+
+            if(message == "!issue" || message == "!suggestion") {
+                bot.sendChat("You may submit command suggestions and issues here lol https://github.com/edwin0259/bot-commands");
             }
             
             if(message == "!mostplayed") {
                 bot.sendChat('Most played songs:');
                 connection.query(`SELECT * FROM songs ORDER BY plays DESC LIMIT 3`, (err, res, fields) => {
-                    console.log(err)
-                    
                     try {
                         console.log(res)
                         res.forEach(item => {
@@ -353,22 +356,8 @@ function main(youtubeKey, dbPassword, botPassword) {
                         })
                     } catch(err) {
                         console.log(err);
-                        //bot.sendChat("Something went wrong! Check logs");
                     }
-                        
-                    //console.log(fields.RowDataPacket)
                 });
-                /*
-                fs.readFile('./tempStats.json',"utf8", (err, data) => {
-                    let stats = JSON.parse(data);
-                    let topPlayedKeys = Object.keys(stats).sort((a, b) => {
-                        return stats[b].count - stats[a].count
-                    })
-                    bot.sendChat('Most played songs:');
-                    for(let x = 0; x < 3; x++) {
-                        bot.sendChat(`${stats[topPlayedKeys[x]].name} - ${stats[topPlayedKeys[x]].count}`);
-                    };
-                })*/
             }
 
             if(message == "!winners") {
@@ -393,38 +382,10 @@ function main(youtubeKey, dbPassword, botPassword) {
                 setTimeout(endRoulette, 60000);
             }
 
-            
-            /*if(message == "!blacklist" && approveUser(user)) {
-                if(!blacklistingUser) {
-                    blacklistingUser = user;
-                    bot.sendChat("You are about to blacklist this song. Type !confirm to confirm.")
-                } else {
-                    bot.sendChat("A user has already initiated blacklist. They must !confirm.")
-                }
-            }*/
-
-            /*if(message == "!blacklist" && !approveUser(user)) {
-                bot.sendChat("Not authorized");
-            }*/
-
             function approveUser(u) {
                 return bot.hasPermission(bot.getUserByName(u), "ban");
             }
-
-            /*if(blacklistingUser == user && message == "!confirm") {
-                fs.readFile('./blacklist.json',"utf8", (err, data) => {
-                    let stats = JSON.parse(data);
-                    if(currentSong.id){
-                        console.log(currentSong.id);
-                        stats[currentSong.id] = stats[currentSong.id] || currentSong;
-                        fs.writeFile('./blacklist.json', JSON.stringify(stats), (err) => {
-                            if(err) throw err;
-                            bot.sendChat("This song is now on the blacklist :skull:");
-                            bot.moderateSkip(() => { blacklistingUser = ""; });
-                        })
-                    }
-                })
-            }*/
+            
             function monthDiff(d1, d2) {
                 var months;
                 months = (d2.getFullYear() - d1.getFullYear()) * 12;

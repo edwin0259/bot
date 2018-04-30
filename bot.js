@@ -3,13 +3,16 @@ const YouTube = require('youtube-node');
 const fs = require('fs');
 const mysql = require("mysql");
 const compArr = require('./composerArray.js');
-
+let baseCommands = {};
 fs.readFile("./keys.json", "utf8", (err, data) => {
     let keys = JSON.parse(data);
 
     main(keys.youtubeKey, keys.dbPassword, keys.botPassword);
 })
 
+fs.readFile("./bot-commands/base.json", "utf8", (err, data) => {
+    baseCommands = JSON.parse(data);
+})
 
 function main(youtubeKey, dbPassword, botPassword) {
     let YT = new YouTube();
@@ -26,7 +29,6 @@ function main(youtubeKey, dbPassword, botPassword) {
     connection.connect();
 
     let un = 'maestroBot'
-    let dustycount = 0;
 
     new DubAPI({username: un, password: botPassword}, function(err, bot) {
         if (err) return console.error(err);
@@ -128,48 +130,6 @@ function main(youtubeKey, dbPassword, botPassword) {
             } else {
                 setTimeout(() => {shouldUpDub(true)}, 10000);
             }
-        }
-
-        function logSong(songObj, djObj) {
-            //console.log(JSON.stringify(songObj), JSON.stringify(djObj))
-            let [djName, dj, djRole] = [djObj.username, djObj.id, djObj.role];
-            let {id, name, type, fkid} = songObj;
-            let tgs = totalGrabs;
-            fs.readFile('./tempStats.json',"utf8", (err, data) => {
-                let stats = JSON.parse(data);
-                stats[id] = stats[id] || {};
-                stats[id].count = stats[id].count + 1 || 1;
-                stats[id].totalGrabs = stats[id].totalGrabs || 0;
-                stats[id].name = stats[id].name || name;
-                stats[id].fkid = stats[id].fkid || fkid;
-                stats[id].type = stats[id].type || type;
-                // most grabs for song in a single play.
-                stats[id].mostGrabs = stats[id].mostGrabs || 0;
-                songStats = stats[id];
-                // skipped track gets overwritten, FIX.
-                // Add grabs to total grans for song.
-                let grabs = bot.getScore().grabs;
-                stats[id].totalGrabs += totalGrabs;
-                // if grabs for play are more then previous record for song.
-                if(stats[id].mostGrabs < totalGrabs) {
-                    stats[id].mostGrabs = totalGrabs;
-                }
-                fs.writeFile('./tempStats.json', JSON.stringify(stats), (err) => {
-                    if(err) throw err;
-                    console.log(stats[id].name);
-                })
-                console.log("TOTAL GRABS: " + tgs)
-                fs.readFile('./users.json',"utf8", (err, data) => {
-                    let users = JSON.parse(data);
-                    users[dj] = users[dj] || {"wins": 0, "username": djName};
-                    users[dj].totalGrabs = users[dj].totalGrabs + tgs || tgs;
-                    users[dj].role = djRole || "null"
-                    fs.writeFile('./users.json', JSON.stringify(users), (err) => {
-                        if(err) throw err;
-                    })
-                })
-                totalGrabs = 0;
-            })
         }
 
         function updateSong(songObj, djObj, callback=null) {
@@ -385,7 +345,7 @@ function main(youtubeKey, dbPassword, botPassword) {
             function approveUser(u) {
                 return bot.hasPermission(bot.getUserByName(u), "ban");
             }
-            
+
             function monthDiff(d1, d2) {
                 var months;
                 months = (d2.getFullYear() - d1.getFullYear()) * 12;
@@ -572,19 +532,6 @@ function main(youtubeKey, dbPassword, botPassword) {
                 })
             }
             
-            if(message == "!dusty") {
-                randomStuffs = ["https://media.giphy.com/media/iJa6kOfJ3qN7a/giphy.gif",
-                                "Sorry, this command doesn't exist anymore",
-                                "Huh??",
-                                ":pizza:",
-                                "Nope",
-                                "No",
-                                "I don't think so",
-                                "https://i.imgur.com/Mdr4T.jpg"];
-                random = Math.floor(Math.random() * 5);
-
-                bot.sendChat(randomStuffs[random]);
-            }
             if(message == "!afk") {
                 bot.sendChat("You need to specify # of hours after afk.");
             }
@@ -636,42 +583,29 @@ function main(youtubeKey, dbPassword, botPassword) {
                 bot.pauseQueue(false);
                 bot_response = true;
             }
-            
-            if(message == "!wave") {
-                bot.sendChat(":wave: :wave: :wave: :wave:");
-            }
-            if(message == "!tada") {
-                bot.sendChat(":tada: :tada: :tada: :tada:");
-            }
 
-            if(message == "!beer" || message == "!cheers") {
-                bot.sendChat(":beer: :beer: :beer: :beer:");
-            }
-            
-            if(message == "!clap" || message == "!bravo") {
-                bot.sendChat(":clap: :clap: :clap: :clap:");
-            }
 
-            if(message == "!kitten" && user == "edwin0259") {
-                bot.sendChat("http://www.pbh2.com/wordpress/wp-content/uploads/2013/03/cutest-kitten-gifs-massage.gif")
-            }
-
-            if(message == "!kitten" && user != "edwin0259") {
-                bot.openPM(bot.getUserByName(user).id,(data) => {
-                    bot.sendPM(data.id, `I'm sorry ${user}, I'm afraid I can't do that.`);
-                })
-            }
-
-            if(message == "!gahh") {
-                bot.sendChat("https://media.giphy.com/media/RhEvCHIeZAZ6E/giphy.gif")
-            }
-
-            if(message == "!great") {
-                bot.sendChat("https://media1.tenor.com/images/bc7a8e060496a6b889c9100c20dce14e/tenor.gif")
-            }
-
-            if(message == "!timetostop" || message == "!stop") {
-                bot.sendChat("https://68.media.tumblr.com/23761093fc63bb8620a4758e76fc9d7f/tumblr_ob5fw5aIuv1tc8piko1_400.gif");
+            // Base commands
+            if(message[0] == "!") {
+                foundCommand = false;
+                commandMessage = undefined;
+                for(let key in baseCommands) {
+                    if(foundCommand) {
+                        // nothin
+                    } else if(key.split("|").includes(message.slice(1))) {
+                        commandMessage = baseCommands[key]
+                        foundCommand = true;
+                    }
+                }
+                
+                if(commandMessage) {
+                    if(typeof commandMessage == "object") {
+                        random = Math.floor(Math.random() * commandMessage.length - 1);
+                        bot.sendChat(commandMessage[random]);
+                    } else {
+                        bot.sendChat(commandMessage);
+                    }
+                } 
             }
             
             if(message == "!sign") {

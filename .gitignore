@@ -5,3 +5,4 @@ songsQueued.txt
 package-lock.json
 bot-commands
 testingDB.js
+.vscode

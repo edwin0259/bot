@@ -103,11 +103,15 @@ function buildWebsite(playData, mostGrabData, hotPlayData, callback) {
     if(err) {
       if(callback) callback(err)
       return err;
-    } else {
-      shell.exec('commit.sh')
     }
-
-    if(callback) callback("Website built :hammer:. Everything might take a moment to update.")
+    
+    shell.exec('commit.sh', (code, err, res) => {
+      if(err) {
+        return err;
+      }
+      if(callback) callback("Website built :hammer:. Everything might take a moment to update.")
+    })
+    
   })
 }
 

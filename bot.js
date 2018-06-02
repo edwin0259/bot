@@ -253,6 +253,10 @@ function main(youtubeKey, dbPassword, botPassword) {
             });
         }
 
+        function buildWebsite() {
+            buildWeb.website(sendChat);
+        }
+
         function exit() {
             
             bot.disconnect();
@@ -345,7 +349,7 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
             if(message == "!build" && user == "edwin0259") {
                 bot.sendChat("Building Website..");
-                buildWeb.website(connection, sendChat);
+                setTimeout(buildWebsite, 5000);
             }
             if(message == "!exit" && user == "edwin0259") {
                  bot.sendChat("Disconnecting, goodbye.");

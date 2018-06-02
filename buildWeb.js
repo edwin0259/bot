@@ -107,7 +107,7 @@ function buildWebsite(playData, mostGrabData, hotPlayData, callback) {
       shell.exec('commit.sh')
     }
 
-    if(callback) callback("Website build :hammer:, stats should be updated soon.")
+    if(callback) callback("Website built :hammer:, stats should be updated soon.")
   })
 }
 

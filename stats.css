@@ -1,0 +1,75 @@
+
+body {
+  background: #444;
+  margin: 0 0 20px 0;
+}
+
+.logo {
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  top: 5px;
+}
+
+.header {
+  text-align: center;
+  font-family: monospace;
+  background: black;
+  margin: 0 0 20px 0;
+  height: 60px;
+  color: white;
+  line-height: 60px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,.3);
+  position: relative;
+}
+
+table {
+  background: #eee;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+table td, table th {
+  padding: 10px;
+  margin: 10px;
+}
+
+table tr:nth-child(odd) {
+  background: #ddd;
+}
+
+.tableHeaders {
+  background: orange !important;
+  box-shadow: 0px 2px 10px rgba(0,0,0,.2);
+}
+
+.selectedCol {
+  background: rgba(240, 140, 0, .3);
+}
+
+.buttonOptions {
+  margin: 0 auto 20px auto;
+  display: flex;
+  width: 400px;
+}
+
+.buttonOptions .option {
+  height: 40px;
+  flex-grow: 1;
+  cursor: pointer;
+  background: #aaa;
+  border: none;
+  margin: 2px;
+  font-size: 15px;
+  box-shadow: inset 1px 1px 1px white, inset -1px -1px 1px black;
+}
+
+#mostPlayedBtn {
+  background: orange;
+}
+
+#mostGrabbed, #hotPlays {
+  display: none;
+}

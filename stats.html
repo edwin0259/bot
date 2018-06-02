@@ -1,78 +1,2753 @@
+
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8"/>
     <title>Stats</title>
+    <link rel="stylesheet" href="stats.css">
   </head>
   <body>
-    <a href="index.html">Home</a>
-    <div class="sort">
-      <h3>Sort Stats</h3>
-      <button id="mp">Most played</button>
-      <button id="mg">Most grabbed</button>
-      <button id="hp">Hot plays</button>
+    <h1 class="header">Limitless Statistics<image class="logo" src="./images/dubLogo.jpg"/></h1>
+    <div class="buttonOptions">
+      <button id="mostPlayedBtn" class="option">Most Played</button>
+      <button id="mostGrabbedBtn" class="option">Most Grabbed</button>
+      <button id="hotPlaysBtn" class="option">Hot Plays</button>
     </div>
-    <pre class="content">
-      Loading..
-    </pre>
+    <table id="mostPlayed">
+      <tr class="tableHeaders">
+  <th>plays</th>
+<th>total grabs</th>
+<th>name</th>
+<th>type</th>
+<th>fkid</th>
+<th>most grabs</th>
+
+</tr>
+<tr>
+  <td class="selectedCol">34</td>
+<td>4</td>
+<td>Nujabes ft. Shing02-Battlecry w/Lyrics</td>
+<td>youtube</td>
+<td>8gOnU1ZKWHU</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">30</td>
+<td>3</td>
+<td>Mr Intercontinental - ANTWON</td>
+<td>youtube</td>
+<td>PmzbdsJ7BAc</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">30</td>
+<td>8</td>
+<td>Donna Regina - Northern Classic</td>
+<td>youtube</td>
+<td>SEgFkgHX6JM</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">27</td>
+<td>11</td>
+<td>Aye Aye (Original Mix) | Pogo</td>
+<td>youtube</td>
+<td>vJCA7OVkUMk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">27</td>
+<td>2</td>
+<td>Gold Panda - Black Voices</td>
+<td>youtube</td>
+<td>XmW42e7z5rI</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">26</td>
+<td>0</td>
+<td>Muse - Starlight (Video)</td>
+<td>youtube</td>
+<td>Pgum6OT_VH8</td>
+<td>0</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">25</td>
+<td>2</td>
+<td>Cash Cash - Overtime</td>
+<td>youtube</td>
+<td>85ftfVUTzM4</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">25</td>
+<td>12</td>
+<td>The MFA - The difference it makes (HQ Superpitcher Mix)</td>
+<td>youtube</td>
+<td>L3BmXdoN-iw</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">25</td>
+<td>3</td>
+<td>STARSET - My Demons (OFFICIAL)</td>
+<td>youtube</td>
+<td>p-N_y1bZtRw</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">24</td>
+<td>4</td>
+<td>Caravan Palace - Lone Digger [Clip officiel]</td>
+<td>youtube</td>
+<td>UbQgXeY_zi4</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">24</td>
+<td>5</td>
+<td>HD Electro House: Case & Point - Upgrade</td>
+<td>youtube</td>
+<td>33ZGpYwk1HU</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">23</td>
+<td>2</td>
+<td>Muse - Hysteria [Official Music Video]</td>
+<td>youtube</td>
+<td>3dm_5qWWDV8</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">22</td>
+<td>6</td>
+<td>The Cranberries - Zombie</td>
+<td>youtube</td>
+<td>6Ejga4kJUts</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">22</td>
+<td>2</td>
+<td>STS9 - When the Dust Settles</td>
+<td>youtube</td>
+<td>mWkfkHOb4P0</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">22</td>
+<td>3</td>
+<td>Muse - Time Is Running Out (video)</td>
+<td>youtube</td>
+<td>O2IuJPh6h_A</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">22</td>
+<td>6</td>
+<td>Handsome Family  � Far From Any Road (Main Title Theme from True Detective) Official Lyric Video</td>
+<td>youtube</td>
+<td>Pl6MCWMU8aE</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">21</td>
+<td>1</td>
+<td>Toto - Africa</td>
+<td>youtube</td>
+<td>FTQbiNvZqaY</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">21</td>
+<td>5</td>
+<td>Queen - Another One Bites the Dust (Official Video)</td>
+<td>youtube</td>
+<td>rY0WxgSXdEE</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">21</td>
+<td>1</td>
+<td>Alice Cooper - Poison</td>
+<td>youtube</td>
+<td>Qq4j1LtCdww</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">21</td>
+<td>8</td>
+<td>Dion - The Wanderer - HD - Video - Stereo Sound .</td>
+<td>youtube</td>
+<td>IkoidwsLXCg</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">21</td>
+<td>3</td>
+<td>Bate Rigason - Yeah!</td>
+<td>youtube</td>
+<td>4q0erY2WGSs</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>3</td>
+<td>Arctic Monkeys - Do I Wanna Know? (Official Video)</td>
+<td>youtube</td>
+<td>bpOSxM0rNPM</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>9</td>
+<td>Of Monsters and Men - Little Talks</td>
+<td>youtube</td>
+<td>ghb6eDopW8I</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>4</td>
+<td>Queen - Bohemian Rhapsody (Official Video)</td>
+<td>youtube</td>
+<td>fJ9rUzIMcZQ</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>6</td>
+<td>Woodkid - Iron (Official Video)</td>
+<td>youtube</td>
+<td>vSkb0kDacjs</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>6</td>
+<td>Ryuichi Sakamoto - Blu</td>
+<td>youtube</td>
+<td>jvZd4MTKY10</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>3</td>
+<td>Red Hot Chili Peppers - Dark Necessities [OFFICIAL VIDEO]</td>
+<td>youtube</td>
+<td>Q0oIoR9mLwc</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>5</td>
+<td>kero kero bonito // trampoline</td>
+<td>youtube</td>
+<td>tTkHkLDy0HI</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">20</td>
+<td>0</td>
+<td>Quok - Atariwave</td>
+<td>youtube</td>
+<td>0hBcjsozChg</td>
+<td>0</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>3</td>
+<td>Guns N' Roses - Sweet Child O' Mine</td>
+<td>youtube</td>
+<td>1w7OgIMMRc4</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>3</td>
+<td>Muse - Uprising</td>
+<td>youtube</td>
+<td>w8KQmps-Sog</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>2</td>
+<td>Radiohead - Creep</td>
+<td>youtube</td>
+<td>XFkzRNyygfk</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>5</td>
+<td>Wham! - Wake Me Up Before You Go-Go</td>
+<td>youtube</td>
+<td>pIgZ7gMze7A</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>3</td>
+<td>Muse - Undisclosed Desires</td>
+<td>youtube</td>
+<td>R8OOWcsFj0U</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>7</td>
+<td>Billy Joel - Uptown Girl</td>
+<td>youtube</td>
+<td>hCuMWrfXG4E</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>3</td>
+<td>Ace of Base - All That She Wants (Official)</td>
+<td>youtube</td>
+<td>d73tiBBzvFM</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>4</td>
+<td>Desmond Cheese - Dope Remix Edit</td>
+<td>youtube</td>
+<td>4YLTvXA-wQ4</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>6</td>
+<td>† Carpenter Brut † TURBO KILLER † Directed by Seth Ickerman † Official Video †</td>
+<td>youtube</td>
+<td>er416Ad3R1g</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>3</td>
+<td>BliZard - Desu No Ki [Electro]</td>
+<td>youtube</td>
+<td>bBSTZGCQOYA</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>5</td>
+<td>NekuraDial - DREAMYEYES</td>
+<td>youtube</td>
+<td>LtbojajwczY</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">19</td>
+<td>6</td>
+<td>Soul Of Gold</td>
+<td>soundcloud</td>
+<td>349861819</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>5</td>
+<td>Smash Mouth - All Star</td>
+<td>youtube</td>
+<td>L_jWHffIx5E</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>7</td>
+<td>The White Stripes - 'Seven Nation Army'</td>
+<td>youtube</td>
+<td>0J2QdDbelmY</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>4</td>
+<td>Adele - Someone Like You</td>
+<td>youtube</td>
+<td>hLQl3WQQoQ0</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>2</td>
+<td>THEY MIGHT BE GIANTS "Istanbul (Not Constantinople)"</td>
+<td>youtube</td>
+<td>vsQrKZcYtqg</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>4</td>
+<td>Röyksopp - Running To The Sea (Official video)</td>
+<td>youtube</td>
+<td>eaGpdhienMk</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>3</td>
+<td>Porter Robinson - Flicker (Official Video)</td>
+<td>youtube</td>
+<td>D1sZ_vwqwcE</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>6</td>
+<td>TheFatRat - Monody (feat. Laura Brehm)</td>
+<td>youtube</td>
+<td>B7xai5u_tnk</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>4</td>
+<td>Daft Punk vs Stardust - Music around the world (DJ HP MAshup</td>
+<td>youtube</td>
+<td>jYIGHjSRlyM</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>3</td>
+<td>Chill/ J. Cole x Isaiah Rashad x Joey Bada$$ Type Beat ~ Clouds [Prod.XIV]</td>
+<td>youtube</td>
+<td>NJZIUevW3_s</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">18</td>
+<td>8</td>
+<td>Skinny Atlas - all day dreaming</td>
+<td>youtube</td>
+<td>7np82BoYNIA</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>4</td>
+<td>No Doubt - Don't Speak</td>
+<td>youtube</td>
+<td>TR3Vdo5etCQ</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>2</td>
+<td>Dido - Thank You</td>
+<td>youtube</td>
+<td>1TO48Cnl66w</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>3</td>
+<td>AronChupa - I'm an Albatraoz (Official Music Video)</td>
+<td>youtube</td>
+<td>Bznxx12Ptl0</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>2</td>
+<td>The Hooters - All You Zombies</td>
+<td>youtube</td>
+<td>2LE0KpcP05I</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>1</td>
+<td>High Contrast - Metamorphosis</td>
+<td>youtube</td>
+<td>yOuiMLdCRC4</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>2</td>
+<td>Elbow - Grounds For Divorce</td>
+<td>youtube</td>
+<td>jxczVhG0os8</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>1</td>
+<td>Pentakill - Lightbringer</td>
+<td>youtube</td>
+<td>oUiOylPbfV0</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>5</td>
+<td>Kill Bill - Soundtrack - The Lonely Shepherd</td>
+<td>youtube</td>
+<td>nsgHyzwmbnQ</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>6</td>
+<td>????MACROSS 82-99 - Fun Tonight</td>
+<td>youtube</td>
+<td>4BSJAAo1uNY</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>0</td>
+<td>Red Hot Chili Peppers - Snow (Hey Oh) (Official Music Video)</td>
+<td>youtube</td>
+<td>yuFI5KSPAt4</td>
+<td>0</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>3</td>
+<td>Skyrim Theme Song - Full (Dovahkiin Song)</td>
+<td>youtube</td>
+<td>AVy7YPNP_zI</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>2</td>
+<td>[D??? I?]Sporty-O - Let me hit it *LYRICS*</td>
+<td>youtube</td>
+<td>HxMHsU1Cpy8</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>2</td>
+<td>Gary Jules - Mad World [HQ]</td>
+<td>youtube</td>
+<td>7pXRSPAUCTU</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>5</td>
+<td>Panic! At The Disco: Emperor's New Clothes [OFFICIAL VIDEO]</td>
+<td>youtube</td>
+<td>7qFF2v8VsaA</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>5</td>
+<td>Electric Youth - Faces</td>
+<td>youtube</td>
+<td>54zmJO810xI</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>5</td>
+<td>Galaxy News Radio - Civilization</td>
+<td>youtube</td>
+<td>i47axy1aRTA</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>4</td>
+<td>Rag'n'Bone Man - Human (Official Video)</td>
+<td>youtube</td>
+<td>L3wKzyIN1yk</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">17</td>
+<td>8</td>
+<td>Uppermost - Reminder (Live Performance)</td>
+<td>youtube</td>
+<td>CysJtcRs9Xk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>2</td>
+<td>Gorillaz - On Melancholy Hill</td>
+<td>youtube</td>
+<td>04mfKJWDSzI</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Brookes Brothers - Carry Me On (Ft. Chrom3) (Official Video)</td>
+<td>youtube</td>
+<td>EVacuySY-CA</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>5</td>
+<td>Milky Chance - Stolen Dance (Album Version)</td>
+<td>youtube</td>
+<td>iX-QaNzd-0Y</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>1</td>
+<td>2 Unlimited - No Limit (1993)</td>
+<td>youtube</td>
+<td>RkEXGgdqMz8</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Queens Of The Stone Age - Go With The Flow</td>
+<td>youtube</td>
+<td>DcHKOC64KnE</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>4</td>
+<td>Daft Punk - Robot Rock</td>
+<td>youtube</td>
+<td>sFZjqVnWBhc</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>4</td>
+<td>Muse - Resistance</td>
+<td>youtube</td>
+<td>TPE9uSFFxrI</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>7</td>
+<td>Spandau Ballet - True</td>
+<td>youtube</td>
+<td>AR8D2yqgQ1U</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>2</td>
+<td>The Beastie Boys - No Sleep Till Brooklyn</td>
+<td>youtube</td>
+<td>07Y0cy-nvAg</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Ain't That A Kick In the Head- Dean Martin</td>
+<td>youtube</td>
+<td>vaj6YGOLskQ</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>5</td>
+<td>MIKA - Relax, Take It Easy</td>
+<td>youtube</td>
+<td>RVmG_d3HKBA</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>6</td>
+<td>Cherokee - Don't Matter (feat. Darianna Everett)</td>
+<td>youtube</td>
+<td>P_N162mpD5k</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>1</td>
+<td>Enya - Only Time (Official Music Video)</td>
+<td>youtube</td>
+<td>7wfYIMyS_dI</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>2</td>
+<td>Empyrium - Dying Brokenhearted</td>
+<td>youtube</td>
+<td>CUy6zCCg-aw</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>The Riddle (Nik Kershaw) HD</td>
+<td>youtube</td>
+<td>IQ31jQjNpQc</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>7</td>
+<td>Kero Kero Bonito - Flamingo (WTN3 Remix)</td>
+<td>youtube</td>
+<td>la9C0n7jSsI</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>2</td>
+<td>David Bowie - Space Oddity</td>
+<td>youtube</td>
+<td>cYMCLz5PQVw</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>4</td>
+<td>Mulatu Astatke - Tezeta (Nostalgia) - Melynga</td>
+<td>youtube</td>
+<td>7Co4kTTu6U0</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>0</td>
+<td>SUPERSEX420 - ???????</td>
+<td>youtube</td>
+<td>zzy0-cT0xnk</td>
+<td>0</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>1</td>
+<td>AutoLaser Feat. T-Clean - Turn Me On (Soft version)</td>
+<td>youtube</td>
+<td>xpvzzOjNkmE</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>5</td>
+<td>Madness  ~ Our House      HQ Audio</td>
+<td>youtube</td>
+<td>2k2enMKefWU</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>1</td>
+<td>Heavy Rain [OST] #03 - Before the Storm</td>
+<td>youtube</td>
+<td>CL0wC0Lp8lE</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Robbie Williams | Party Like A Russian - Official Video</td>
+<td>youtube</td>
+<td>MdYGQ7B0Vew</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>2</td>
+<td>The Matrix Soundtrack  / Clubbed to Death</td>
+<td>youtube</td>
+<td>tuRhE7y6-EA</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Harumonia</td>
+<td>soundcloud</td>
+<td>198004549</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>1</td>
+<td>SIAM�S - "The Wolf" [Official Video]</td>
+<td>youtube</td>
+<td>lX44CAz-JhU</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Viscaya - Oasis (Live Video)</td>
+<td>youtube</td>
+<td>lRR6uRPxbKc</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>3</td>
+<td>Ghost - He Is (Music Video)</td>
+<td>youtube</td>
+<td>7hMaHDTw-pI</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">16</td>
+<td>1</td>
+<td>Brad Majors - Tracy ( Audio Video )</td>
+<td>youtube</td>
+<td>1aJsZVKp6TY</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">15</td>
+<td>5</td>
+<td>Journey - Separate Ways (Worlds Apart)</td>
+<td>youtube</td>
+<td>LatorN4P9aA</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td class="selectedCol">15</td>
+<td>1</td>
+<td>Red Hot Chili Peppers - Under The Bridge [Official Music Video]</td>
+<td>youtube</td>
+<td>GLvohMXgcBo</td>
+<td>1</td>
+
+</tr>
+
+    </table>
+    <table id="mostGrabbed">
+      <tr class="tableHeaders">
+  <th>plays</th>
+<th>total grabs</th>
+<th>name</th>
+<th>type</th>
+<th>fkid</th>
+<th>most grabs</th>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">12</td>
+<td>Heart - Stairway to Heaven (Live at Kennedy Center Honors) [FULL VERSION]</td>
+<td>youtube</td>
+<td>LFxOaDeJmXk</td>
+<td>7</td>
+
+</tr>
+<tr>
+  <td>25</td>
+<td class="selectedCol">12</td>
+<td>The MFA - The difference it makes (HQ Superpitcher Mix)</td>
+<td>youtube</td>
+<td>L3BmXdoN-iw</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>27</td>
+<td class="selectedCol">11</td>
+<td>Aye Aye (Original Mix) | Pogo</td>
+<td>youtube</td>
+<td>vJCA7OVkUMk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">11</td>
+<td>John Denver - Take Me Home, Country Roads</td>
+<td>youtube</td>
+<td>1vrEljMfXYo</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td class="selectedCol">10</td>
+<td>Edvard Grieg ~ Melody Op. 47</td>
+<td>youtube</td>
+<td>_5l3XG6ucOE</td>
+<td>10</td>
+
+</tr>
+<tr>
+  <td>11</td>
+<td class="selectedCol">10</td>
+<td>Snail's House - Pixel Galaxy (Official MV)</td>
+<td>youtube</td>
+<td>3nlSDxvt6JU</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>20</td>
+<td class="selectedCol">9</td>
+<td>Of Monsters and Men - Little Talks</td>
+<td>youtube</td>
+<td>ghb6eDopW8I</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">9</td>
+<td>[Drum&Bass] simpl� & Tarpey - Suburban Stills</td>
+<td>youtube</td>
+<td>OlRlQvvAlDU</td>
+<td>5</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">8</td>
+<td>Tove Lo - Stay High (Habits Remix) ft. Hippie Sabotage</td>
+<td>youtube</td>
+<td>SYM-RJwSGQ8</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td class="selectedCol">8</td>
+<td>Nina Simone - Sinnerman</td>
+<td>youtube</td>
+<td>QH3Fx41Jpl4</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>10</td>
+<td class="selectedCol">8</td>
+<td>CeeLo Green - FUCK YOU (Official Video)</td>
+<td>youtube</td>
+<td>pc0mxOXbWIU</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td class="selectedCol">8</td>
+<td>The Pointer Sisters - I'm So Excited</td>
+<td>youtube</td>
+<td>8iwBM_YB1sE</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">8</td>
+<td>Smells Like Teen Spirit by Think Up Anger ft. Malia J (Full Length)</td>
+<td>youtube</td>
+<td>UKN6IqpcAk8</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>21</td>
+<td class="selectedCol">8</td>
+<td>Dion - The Wanderer - HD - Video - Stereo Sound .</td>
+<td>youtube</td>
+<td>IkoidwsLXCg</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>30</td>
+<td class="selectedCol">8</td>
+<td>Donna Regina - Northern Classic</td>
+<td>youtube</td>
+<td>SEgFkgHX6JM</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">8</td>
+<td>Cherry Glazerr - Told You I'd Be With The Guys (Official Video)</td>
+<td>youtube</td>
+<td>GFgz9aiiZlQ</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">8</td>
+<td>VULFPECK /// Dean Town</td>
+<td>youtube</td>
+<td>le0BLAEO93g</td>
+<td>8</td>
+
+</tr>
+<tr>
+  <td>17</td>
+<td class="selectedCol">8</td>
+<td>Uppermost - Reminder (Live Performance)</td>
+<td>youtube</td>
+<td>CysJtcRs9Xk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td class="selectedCol">8</td>
+<td>Men I Trust - Lauren (Free Download)</td>
+<td>youtube</td>
+<td>TNsSBhl_2LI</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>10</td>
+<td class="selectedCol">8</td>
+<td>Kirin J Callinan - Big Enough ft. Alex Cameron, Molly Lewis, Jimmy Barnes</td>
+<td>youtube</td>
+<td>rvrZJ5C_Nwg</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>18</td>
+<td class="selectedCol">8</td>
+<td>Skinny Atlas - all day dreaming</td>
+<td>youtube</td>
+<td>7np82BoYNIA</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td class="selectedCol">7</td>
+<td>A Tribe Called Quest - Scenario</td>
+<td>youtube</td>
+<td>Q6TLWqn82J4</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>18</td>
+<td class="selectedCol">7</td>
+<td>The White Stripes - 'Seven Nation Army'</td>
+<td>youtube</td>
+<td>0J2QdDbelmY</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">7</td>
+<td>Alphaville - Forever Young ~Official Video</td>
+<td>youtube</td>
+<td>t1TcDHrkQYg</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>8</td>
+<td class="selectedCol">7</td>
+<td>Frank Sinatra - "The Girl From Ipanema" (Concert Collection)</td>
+<td>youtube</td>
+<td>NldPFVKYmiw</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>16</td>
+<td class="selectedCol">7</td>
+<td>Spandau Ballet - True</td>
+<td>youtube</td>
+<td>AR8D2yqgQ1U</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">7</td>
+<td>alt-J (?) Breezeblocks</td>
+<td>youtube</td>
+<td>rVeMiVU77wo</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>13</td>
+<td class="selectedCol">7</td>
+<td>Kavinsky - Nightcall (Drive Original Movie Soundtrack)</td>
+<td>youtube</td>
+<td>MV_3Dpw-BRY</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>8</td>
+<td class="selectedCol">7</td>
+<td>Wild Cherry-Play that funky music W/ lyrics</td>
+<td>youtube</td>
+<td>_pHT9yYFdZg</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>19</td>
+<td class="selectedCol">7</td>
+<td>Billy Joel - Uptown Girl</td>
+<td>youtube</td>
+<td>hCuMWrfXG4E</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>14</td>
+<td class="selectedCol">7</td>
+<td>Saint Pepsi - Private Caller</td>
+<td>youtube</td>
+<td>Ki-fATpXa00</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">7</td>
+<td>Carpenter Brut - Le Perv (official video)</td>
+<td>youtube</td>
+<td>7fDvxlK2FMc</td>
+<td>7</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td class="selectedCol">7</td>
+<td>Worakls - Porto (Official Video)</td>
+<td>youtube</td>
+<td>CQzFHdaMvuM</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>16</td>
+<td class="selectedCol">7</td>
+<td>Kero Kero Bonito - Flamingo (WTN3 Remix)</td>
+<td>youtube</td>
+<td>la9C0n7jSsI</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">7</td>
+<td>Big Iron- Marty Robbins</td>
+<td>youtube</td>
+<td>999RqGZatPs</td>
+<td>7</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">7</td>
+<td>The Prodigy - Invaders Must Die (Official Video)</td>
+<td>youtube</td>
+<td>EiqFcc_l_Kk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>11</td>
+<td class="selectedCol">7</td>
+<td>Kollektiv Turmstrasse - Tristesse [HD 720p]</td>
+<td>youtube</td>
+<td>kw1NCddhvJQ</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td class="selectedCol">7</td>
+<td>Musical Youth- Pass the Dutchie</td>
+<td>youtube</td>
+<td>BIyEjcCtFg8</td>
+<td>7</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td class="selectedCol">7</td>
+<td>" Autumn Leaves " Chet Baker - Paul Desmond</td>
+<td>youtube</td>
+<td>Gsz3mrnIBd0</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">7</td>
+<td>Jesse Cook - Virtue</td>
+<td>youtube</td>
+<td>i0hqGinjWsc</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td class="selectedCol">7</td>
+<td>Mgzavrebi - Damiskhi Damalevine (OFFICIAL VIDEO)</td>
+<td>youtube</td>
+<td>nC6F_54dDss</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">7</td>
+<td>MIS-TEEQ - Scandalous HD</td>
+<td>youtube</td>
+<td>kT2s_DnRZmg</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td class="selectedCol">7</td>
+<td>I'll Walk Alone - Louis Armstrong Jazz Collection (Remastered High Quality)</td>
+<td>youtube</td>
+<td>TBUOfBWFr_I</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">7</td>
+<td>Night Tempo x Tomggg - ??? Suki!</td>
+<td>youtube</td>
+<td>S8pjExFdu7g</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">7</td>
+<td>boy pablo - Everytime</td>
+<td>youtube</td>
+<td>Lzi7ljJiLJQ</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>22</td>
+<td class="selectedCol">6</td>
+<td>The Cranberries - Zombie</td>
+<td>youtube</td>
+<td>6Ejga4kJUts</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>15</td>
+<td class="selectedCol">6</td>
+<td>Bobby McFerrin - Don't Worry Be Happy</td>
+<td>youtube</td>
+<td>d-diB65scQU</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>20</td>
+<td class="selectedCol">6</td>
+<td>Woodkid - Iron (Official Video)</td>
+<td>youtube</td>
+<td>vSkb0kDacjs</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>15</td>
+<td class="selectedCol">6</td>
+<td>R.E.M. - Losing My Religion (Video)</td>
+<td>youtube</td>
+<td>xwtdhWltSIg</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">6</td>
+<td>Mogwai - Take Me Somewhere Nice</td>
+<td>youtube</td>
+<td>luM6oeCM7Yw</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>14</td>
+<td class="selectedCol">6</td>
+<td>Rammstein - Amerika (Official Video)</td>
+<td>youtube</td>
+<td>Rr8ljRgcJNM</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>16</td>
+<td class="selectedCol">6</td>
+<td>Cherokee - Don't Matter (feat. Darianna Everett)</td>
+<td>youtube</td>
+<td>P_N162mpD5k</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>10</td>
+<td class="selectedCol">6</td>
+<td>Big Data - "Dangerous (feat. Joywave)" [Official Music Video]</td>
+<td>youtube</td>
+<td>E8b4xYbEugo</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td>10</td>
+<td class="selectedCol">6</td>
+<td>Sing Sing Sing - Benny Goodman</td>
+<td>youtube</td>
+<td>fhyhP_5VfKM</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">6</td>
+<td>Doki Doki no Disco ???????????</td>
+<td>soundcloud</td>
+<td>205079375</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">6</td>
+<td>Zero 7 - In The Waiting Line</td>
+<td>youtube</td>
+<td>5tZlu4wP4pw</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">6</td>
+<td>Curtis Mayfield - Superfly</td>
+<td>youtube</td>
+<td>-cmo6MRYf5g</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">6</td>
+<td>"Chocolate Rain" Original Song by Tay Zonday</td>
+<td>youtube</td>
+<td>EwTZ2xpQwpA</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">6</td>
+<td>Sublime - Saw Red with Gwen Stefani (live) [no edit!!!]</td>
+<td>youtube</td>
+<td>j6H2DytO23o</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td class="selectedCol">6</td>
+<td>Bryan Adams - Heaven</td>
+<td>youtube</td>
+<td>s6TtwR2Dbjg</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td class="selectedCol">6</td>
+<td>Grace Potter And The Nocturnals - The Lion The Beast The Beat</td>
+<td>youtube</td>
+<td>Ov8uT8DTvlw</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>17</td>
+<td class="selectedCol">6</td>
+<td>????MACROSS 82-99 - Fun Tonight</td>
+<td>youtube</td>
+<td>4BSJAAo1uNY</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td class="selectedCol">6</td>
+<td>Celine Dion & Peabo Bryson - Beauty And The Beast (HQ Official Music Video)</td>
+<td>youtube</td>
+<td>pgYEJHJXFB4</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>22</td>
+<td class="selectedCol">6</td>
+<td>Handsome Family  � Far From Any Road (Main Title Theme from True Detective) Official Lyric Video</td>
+<td>youtube</td>
+<td>Pl6MCWMU8aE</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>14</td>
+<td class="selectedCol">6</td>
+<td>Daft Punk - Robot Rock / Oh Yeah (Official audio)</td>
+<td>youtube</td>
+<td>lVKbF8khsrI</td>
+<td>4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">6</td>
+<td>Reservoir Dogs OST-The George Baker Selection-Little Green Bag</td>
+<td>youtube</td>
+<td>anGYFI_hmII</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>13</td>
+<td class="selectedCol">6</td>
+<td>Everyday- Kanmusume Kongo</td>
+<td>youtube</td>
+<td>6Bx82Ygfnc8</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>11</td>
+<td class="selectedCol">6</td>
+<td>Kelly Rowland Work (HQ Video)</td>
+<td>youtube</td>
+<td>9uZczPvm4jk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">6</td>
+<td>Hit Me With Your Best Shot</td>
+<td>youtube</td>
+<td>zRbXMWYMNno</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">6</td>
+<td>Howl's Moving Castle [OST - Theme Song]</td>
+<td>youtube</td>
+<td>UwxatzcYf9Q</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td class="selectedCol">6</td>
+<td>Art Tatum plays Tea for Two</td>
+<td>youtube</td>
+<td>fKb0Sc2lYVU</td>
+<td>5</td>
+
+</tr>
+<tr>
+  <td>18</td>
+<td class="selectedCol">6</td>
+<td>TheFatRat - Monody (feat. Laura Brehm)</td>
+<td>youtube</td>
+<td>B7xai5u_tnk</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">6</td>
+<td>Kutiman - Mix Tel Aviv</td>
+<td>youtube</td>
+<td>izSRjdYln8E</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td class="selectedCol">6</td>
+<td>Johnny Hodges- I Didn't Know About You (1958)</td>
+<td>youtube</td>
+<td>lxBCEuHQVms</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td class="selectedCol">6</td>
+<td>Hotline Bling (Wii Shop Channel Remix) ToonLinkIRL</td>
+<td>youtube</td>
+<td>gYOEyzBFYa4</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>20</td>
+<td class="selectedCol">6</td>
+<td>Ryuichi Sakamoto - Blu</td>
+<td>youtube</td>
+<td>jvZd4MTKY10</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td class="selectedCol">6</td>
+<td>Les Enfants - Castling Feelings</td>
+<td>youtube</td>
+<td>3XGpoYYFXSk</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td class="selectedCol">6</td>
+<td>Vladimir Putin - Putin, Putout (#TheMockingbirdMan by Klemen Slakonja)</td>
+<td>youtube</td>
+<td>t-wFKNy0MZQ</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>19</td>
+<td class="selectedCol">6</td>
+<td>† Carpenter Brut † TURBO KILLER † Directed by Seth Ickerman † Official Video †</td>
+<td>youtube</td>
+<td>er416Ad3R1g</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td class="selectedCol">6</td>
+<td>SingerSen (???) - Heartbeats</td>
+<td>youtube</td>
+<td>J1YfGGUFpXE</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">6</td>
+<td>The Aristocats - Everybody wants to be a cat</td>
+<td>youtube</td>
+<td>4rrXR6n0RTY</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">6</td>
+<td>Parov Stelar - Step Two ft. Lilja Bloom</td>
+<td>youtube</td>
+<td>sCv-PIs-ilo</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td class="selectedCol">6</td>
+<td>Nightcore - Kyary Pamyu Pamyu - PonPonPon</td>
+<td>soundcloud</td>
+<td>254910379</td>
+<td>5</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td class="selectedCol">6</td>
+<td>TAAR「Come Together feat. iri」</td>
+<td>youtube</td>
+<td>tpORjlVVMDA</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">6</td>
+<td>Apocalypse - Cigarettes After Sex</td>
+<td>youtube</td>
+<td>sElE_BfQ67s</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td class="selectedCol">6</td>
+<td>Agrume - Summer In Konoha</td>
+<td>youtube</td>
+<td>qh-6iJot4n0</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td class="selectedCol">6</td>
+<td>DEAN - love | A COLORS SHOW</td>
+<td>youtube</td>
+<td>SkNB5AsgZOc</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>19</td>
+<td class="selectedCol">6</td>
+<td>Soul Of Gold</td>
+<td>soundcloud</td>
+<td>349861819</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">6</td>
+<td>Nius X - Moving On</td>
+<td>youtube</td>
+<td>2N1ySlFzKuk</td>
+<td>5</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td class="selectedCol">6</td>
+<td>Within Tempation - Lost ( Imrael Production ) HD</td>
+<td>youtube</td>
+<td>Ouu5XCKfaIg</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td class="selectedCol">6</td>
+<td>FANDANGO - MARGINAL</td>
+<td>youtube</td>
+<td>SKFHLbSgwEA</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td class="selectedCol">6</td>
+<td>El Puñal - Laura Guevara y José Ignacio Benítez</td>
+<td>youtube</td>
+<td>tUQkiUTYdh0</td>
+<td>6</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td class="selectedCol">5</td>
+<td>Nicky Romero - Toulouse</td>
+<td>youtube</td>
+<td>KrVC5dm5fFc</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>18</td>
+<td class="selectedCol">5</td>
+<td>Smash Mouth - All Star</td>
+<td>youtube</td>
+<td>L_jWHffIx5E</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>15</td>
+<td class="selectedCol">5</td>
+<td>Journey - Separate Ways (Worlds Apart)</td>
+<td>youtube</td>
+<td>LatorN4P9aA</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>8</td>
+<td class="selectedCol">5</td>
+<td>Red Hot Chili Peppers - Dani California [Official Music Video]</td>
+<td>youtube</td>
+<td>Sb5aq5HcS1A</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>16</td>
+<td class="selectedCol">5</td>
+<td>Milky Chance - Stolen Dance (Album Version)</td>
+<td>youtube</td>
+<td>iX-QaNzd-0Y</td>
+<td>1</td>
+
+</tr>
+<tr>
+  <td>11</td>
+<td class="selectedCol">5</td>
+<td>Rob Zombie - Dragula</td>
+<td>youtube</td>
+<td>EqQuihD0hoI</td>
+<td>3</td>
+
+</tr>
+<tr>
+  <td>10</td>
+<td class="selectedCol">5</td>
+<td>Earth, Wind & Fire - September</td>
+<td>youtube</td>
+<td>Gs069dndIYk</td>
+<td>2</td>
+
+</tr>
+<tr>
+  <td>8</td>
+<td class="selectedCol">5</td>
+<td>OutKast - So Fresh, So Clean</td>
+<td>youtube</td>
+<td>-JfEJq56IwI</td>
+<td>3</td>
+
+</tr>
+
+    </table>
+    <table id="hotPlays">
+      <tr class="tableHeaders">
+  <th>plays</th>
+<th>total grabs</th>
+<th>name</th>
+<th>type</th>
+<th>fkid</th>
+<th>most grabs</th>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>10</td>
+<td>Edvard Grieg ~ Melody Op. 47</td>
+<td>youtube</td>
+<td>_5l3XG6ucOE</td>
+<td class="selectedCol">10</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>8</td>
+<td>VULFPECK /// Dean Town</td>
+<td>youtube</td>
+<td>le0BLAEO93g</td>
+<td class="selectedCol">8</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td>7</td>
+<td>Carpenter Brut - Le Perv (official video)</td>
+<td>youtube</td>
+<td>7fDvxlK2FMc</td>
+<td class="selectedCol">7</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>12</td>
+<td>Heart - Stairway to Heaven (Live at Kennedy Center Honors) [FULL VERSION]</td>
+<td>youtube</td>
+<td>LFxOaDeJmXk</td>
+<td class="selectedCol">7</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>7</td>
+<td>Big Iron- Marty Robbins</td>
+<td>youtube</td>
+<td>999RqGZatPs</td>
+<td class="selectedCol">7</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>7</td>
+<td>Musical Youth- Pass the Dutchie</td>
+<td>youtube</td>
+<td>BIyEjcCtFg8</td>
+<td class="selectedCol">7</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>6</td>
+<td>Zero 7 - In The Waiting Line</td>
+<td>youtube</td>
+<td>5tZlu4wP4pw</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>6</td>
+<td>"Chocolate Rain" Original Song by Tay Zonday</td>
+<td>youtube</td>
+<td>EwTZ2xpQwpA</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>6</td>
+<td>Kutiman - Mix Tel Aviv</td>
+<td>youtube</td>
+<td>izSRjdYln8E</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>6</td>
+<td>Hotline Bling (Wii Shop Channel Remix) ToonLinkIRL</td>
+<td>youtube</td>
+<td>gYOEyzBFYa4</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td>7</td>
+<td>Jesse Cook - Virtue</td>
+<td>youtube</td>
+<td>i0hqGinjWsc</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>6</td>
+<td>Les Enfants - Castling Feelings</td>
+<td>youtube</td>
+<td>3XGpoYYFXSk</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>6</td>
+<td>FANDANGO - MARGINAL</td>
+<td>youtube</td>
+<td>SKFHLbSgwEA</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>6</td>
+<td>El Puñal - Laura Guevara y José Ignacio Benítez</td>
+<td>youtube</td>
+<td>tUQkiUTYdh0</td>
+<td class="selectedCol">6</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>5</td>
+<td>Blank Banshee - Teen Pregnancy</td>
+<td>youtube</td>
+<td>RQxDM2K-hd0</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>5</td>
+<td>Koji Kondo - Fairy Fountain (from The Legend of Zelda series) - Amy Turk, Harp</td>
+<td>youtube</td>
+<td>26n6SWY3jUc</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>5</td>
+<td>Oh Wonder - Drive (Official Audio)</td>
+<td>youtube</td>
+<td>4LFGqokvOwI</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>5</td>
+<td>Iron Maiden- Phantom Of The Opera</td>
+<td>youtube</td>
+<td>h8IuFl3sMhk</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>5</td>
+<td>AKFG - Rewrite (live)</td>
+<td>youtube</td>
+<td>LGjtrWhvAhA</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>5</td>
+<td>The Coasters - Sh Boom Life Could Be A Dream</td>
+<td>youtube</td>
+<td>0T5W-xJWuPE</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>6</td>
+<td>Art Tatum plays Tea for Two</td>
+<td>youtube</td>
+<td>fKb0Sc2lYVU</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td>9</td>
+<td>[Drum&Bass] simpl� & Tarpey - Suburban Stills</td>
+<td>youtube</td>
+<td>OlRlQvvAlDU</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>5</td>
+<td>Yuiko Tsukobura - Tsukanoma yotogi bito</td>
+<td>youtube</td>
+<td>sIH9wRoLaok</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>5</td>
+<td>One More Kiss Dear - Tom Schmid (Blade Runner 30th Anniversary Version)</td>
+<td>youtube</td>
+<td>1ICwQeIHTTo</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>5</td>
+<td>You Belong With Me (Taylor Swift Cover) - For All Those Sleeping (Punk Goes Pop Vol. 4)</td>
+<td>youtube</td>
+<td>L9Py-CSYsP4</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>5</td>
+<td>Oni Ayhun - OAR003-B (Music Video)</td>
+<td>youtube</td>
+<td>RNVKSJmbEkM</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>6</td>
+<td>Nightcore - Kyary Pamyu Pamyu - PonPonPon</td>
+<td>soundcloud</td>
+<td>254910379</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>5</td>
+<td>ProleteR - Moonlight Jive</td>
+<td>youtube</td>
+<td>qWy3UND-v5c</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>6</td>
+<td>Nius X - Moving On</td>
+<td>youtube</td>
+<td>2N1ySlFzKuk</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>5</td>
+<td>Ronald Reggae - Jamaican Rhapsody</td>
+<td>youtube</td>
+<td>WHho3_ZRKZ0</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>5</td>
+<td>Arco - Perfect World</td>
+<td>youtube</td>
+<td>I-ERN0xFIpY</td>
+<td class="selectedCol">5</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>7</td>
+<td>A Tribe Called Quest - Scenario</td>
+<td>youtube</td>
+<td>Q6TLWqn82J4</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>4</td>
+<td>Cutting Crew - (I Just) Died in Your Arms</td>
+<td>youtube</td>
+<td>rrJky8YuTr4</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>System Of A Down - Question!</td>
+<td>youtube</td>
+<td>ENBv2i88g6Y</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>12</td>
+<td>7</td>
+<td>Alphaville - Forever Young ~Official Video</td>
+<td>youtube</td>
+<td>t1TcDHrkQYg</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Contiez Feat. Treyy G - Trumpsta (Djuro Remix) [Safari Music]</td>
+<td>youtube</td>
+<td>0RiQDCWsk-U</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>4</td>
+<td>Lorde - Tennis Court (Flume Remix)</td>
+<td>youtube</td>
+<td>8ATu1BiOPZA</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>5</td>
+<td>Gigi D'Agostino - L'Amour Toujours ( Official Video )</td>
+<td>youtube</td>
+<td>wD0Mm6WIcYs</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Boomtown Rats - I Don't Like Mondays</td>
+<td>youtube</td>
+<td>o2I84-A9duY</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Flipsyde - Someday</td>
+<td>youtube</td>
+<td>e5QEAI_O2IA</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>5</td>
+<td>Mariah Carey - All I Want For Christmas Is You</td>
+<td>youtube</td>
+<td>yXQViqx6GMY</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td>6</td>
+<td>Mogwai - Take Me Somewhere Nice</td>
+<td>youtube</td>
+<td>luM6oeCM7Yw</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td>5</td>
+<td>Styx - Renegade</td>
+<td>youtube</td>
+<td>ZXhuso4OTG4</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>8</td>
+<td>Nina Simone - Sinnerman</td>
+<td>youtube</td>
+<td>QH3Fx41Jpl4</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>4</td>
+<td>Iggy Pop - The Passenger</td>
+<td>youtube</td>
+<td>S0nlygb1Qfw</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>14</td>
+<td>6</td>
+<td>Rammstein - Amerika (Official Video)</td>
+<td>youtube</td>
+<td>Rr8ljRgcJNM</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>[IOSYS] 10. ??????????????? ??????? (Gensou Stream Remix)</td>
+<td>youtube</td>
+<td>Ah00uBqXbdU</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Klaypex ft. GR�TA - Robot Love</td>
+<td>youtube</td>
+<td>XShdmeKmNxw</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>5</td>
+<td>Adult Swim Bump - Go To Bed</td>
+<td>youtube</td>
+<td>vyPkuPhBK5E</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>4</td>
+<td>Kutiman - Thru Tokyo | ????? - ????? | PBS Digital Studios</td>
+<td>youtube</td>
+<td>QekSE3NBf7s</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>5</td>
+<td>HONNE - Warm On A Cold Night</td>
+<td>youtube</td>
+<td>CX5f0NcqlMs</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>5</td>
+<td>Herbie Hancock - Cantaloupe Island</td>
+<td>youtube</td>
+<td>8B1oIXGX0Io</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>4</td>
+<td>Falconshield - This Is War 2: Piltover vs Zaun (Original LoL song *COLLAB*)</td>
+<td>youtube</td>
+<td>NBNpS8QqD_I</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>10</td>
+<td>8</td>
+<td>CeeLo Green - FUCK YOU (Official Video)</td>
+<td>youtube</td>
+<td>pc0mxOXbWIU</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td>6</td>
+<td>Curtis Mayfield - Superfly</td>
+<td>youtube</td>
+<td>-cmo6MRYf5g</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Les Paul Trio - "Over The Rainbow"</td>
+<td>youtube</td>
+<td>1NdSU03jnUw</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Jeannie C. Riley - Harper Valley PTA - 1968</td>
+<td>youtube</td>
+<td>08QH3rVqokw</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>4</td>
+<td>Fine Young Cannibals - Johnny Come Home</td>
+<td>youtube</td>
+<td>2H5Se-9XAVE</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>8</td>
+<td>The Pointer Sisters - I'm So Excited</td>
+<td>youtube</td>
+<td>8iwBM_YB1sE</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Seed- Sublime</td>
+<td>youtube</td>
+<td>6FGeuCW2GmE</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>4</td>
+<td>we were promised jetpacks-it's thunder and it's lightning</td>
+<td>youtube</td>
+<td>ndTURy78OqI</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Phil Collins - Golden Slumbers, Carry That Weight, The End (1998)</td>
+<td>youtube</td>
+<td>SgoQ1gi_7i0</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>14</td>
+<td>6</td>
+<td>Daft Punk - Robot Rock / Oh Yeah (Official audio)</td>
+<td>youtube</td>
+<td>lVKbF8khsrI</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>11</td>
+<td>7</td>
+<td>Kollektiv Turmstrasse - Tristesse [HD 720p]</td>
+<td>youtube</td>
+<td>kw1NCddhvJQ</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Nat King Cole - Orange Colored Sky</td>
+<td>youtube</td>
+<td>ad6EL-qTGl8</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Abandoned Streets - Jordan F</td>
+<td>youtube</td>
+<td>yU8AqLaa2_I</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>4</td>
+<td>Eminem - Criminal Lyrics</td>
+<td>youtube</td>
+<td>7sWP_6YFEgw</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Heather B. Feat. M.O.P. - My Kinda Nigga</td>
+<td>youtube</td>
+<td>IB7cu6bWmrk</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>7</td>
+<td>" Autumn Leaves " Chet Baker - Paul Desmond</td>
+<td>youtube</td>
+<td>Gsz3mrnIBd0</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>4</td>
+<td>GUNSHIP - Tech Noir [Official Music Video]</td>
+<td>youtube</td>
+<td>-nC5TBv3sfU</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>4</td>
+<td>Johnny Cash - When th Man Comes Around ( w/ lyrics)</td>
+<td>youtube</td>
+<td>0aAeif20Vc0</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>4</td>
+<td>Paul Anka - Put Your Head On My Shoulder (1959) HQ Audio</td>
+<td>youtube</td>
+<td>uvxagNIBVLU</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>5</td>
+<td>Leningrad - Lastochka</td>
+<td>youtube</td>
+<td>B8Vhj8guass</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>4</td>
+<td>L'Imp�ratrice � VANILLE FRAISE ?</td>
+<td>youtube</td>
+<td>iZAqaykiS70</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Jasper P - Hiatus</td>
+<td>youtube</td>
+<td>a7FSJSUxFe0</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Mother - John Lennon (Remastered 2010)</td>
+<td>youtube</td>
+<td>WBp82OxjU1Y</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Victor Love - ネオ東京 Underground</td>
+<td>youtube</td>
+<td>qc0iW_v4HzU</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>4</td>
+<td>Kano - This Is England</td>
+<td>youtube</td>
+<td>uPmNxobIoWI</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Eminem - My Fault [HD Best Quality]</td>
+<td>youtube</td>
+<td>g_vFhINH77Y</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>7</td>
+<td>Mgzavrebi - Damiskhi Damalevine (OFFICIAL VIDEO)</td>
+<td>youtube</td>
+<td>nC6F_54dDss</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>8</td>
+<td>5</td>
+<td>?????GO FURTHER?????????</td>
+<td>youtube</td>
+<td>zrCHFq5GB7U</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Just By Myself</td>
+<td>youtube</td>
+<td>0eplNVnqmpU</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>7</td>
+<td>4</td>
+<td>Miike Snow - "My Trigger" (Official Video)</td>
+<td>youtube</td>
+<td>wl6k_h2drK8</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>9</td>
+<td>8</td>
+<td>Cherry Glazerr - Told You I'd Be With The Guys (Official Video)</td>
+<td>youtube</td>
+<td>GFgz9aiiZlQ</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>4</td>
+<td>WRONG NEIGHBORHOOD MUSIC VIDEO [ORIGINAL]</td>
+<td>youtube</td>
+<td>ylbNYjXgh3M</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>5</td>
+<td>5</td>
+<td>Kimiko Kasai with Herbie Hancock - Tell Me A Bedtime Story (Butterfly, 1979)</td>
+<td>youtube</td>
+<td>YMzYhndlXqQ</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>dream, ivory - blue</td>
+<td>youtube</td>
+<td>CXjCu6MwHg8</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>S l u m g o d    Dream 75 Years Of Time</td>
+<td>youtube</td>
+<td>pj_PSVd-1U8</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>It's Raining Men Remix - The Living Tombstone ft. Eilemonty</td>
+<td>soundcloud</td>
+<td>293311305</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>4</td>
+<td>8</td>
+<td>Men I Trust - Lauren (Free Download)</td>
+<td>youtube</td>
+<td>TNsSBhl_2LI</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>The Native Howl - Thunderhead (Official Music Video)</td>
+<td>youtube</td>
+<td>merSR-CNzRg</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Gorillaz - Saturnz Barz (Spirit House)</td>
+<td>youtube</td>
+<td>5qJp6xlKEug</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Michel Jackson They Dont Care About Us Official Version [HD] (1080p)</td>
+<td>youtube</td>
+<td>cXaJroXK-64</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>José Feliciano - Let's Find Each Other Tonight - HQ</td>
+<td>youtube</td>
+<td>u1HpBqQbn-E</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>The Skints - Let's Stay Together (Al Green Cover)</td>
+<td>youtube</td>
+<td>JAUMO43vrBA</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>6</td>
+<td>5</td>
+<td>Hanine - Arabia</td>
+<td>youtube</td>
+<td>ICUb7y1QCXs</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>2</td>
+<td>4</td>
+<td>Arcade Fire - Everything Now (Official Video)</td>
+<td>youtube</td>
+<td>zC30BYR3CUk</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Nujabes Memorial Bump (Rest In Beats) - 1 Year Later</td>
+<td>youtube</td>
+<td>nrQCUPM9MPQ</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>3</td>
+<td>5</td>
+<td>Marnie - Electric Youth (Official Video)</td>
+<td>youtube</td>
+<td>wes9HeLr_IM</td>
+<td class="selectedCol">4</td>
+
+</tr>
+<tr>
+  <td>1</td>
+<td>4</td>
+<td>Olu - Midnight</td>
+<td>youtube</td>
+<td>o3U3yZwFebo</td>
+<td class="selectedCol">4</td>
+
+</tr>
+
+    </table>
+    <script src="stats.js"></script>
   </body>
-  <script>
-    var content = document.querySelector(".content");
-    var sort = document.querySelector(".sort");
-    var mp = document.getElementById("mp");
-    var mg = document.getElementById("mg");
-    var hp = document.getElementById("hp");
-    sort.style.display = "none";
-    var stats;
-    var client = new XMLHttpRequest();
-    client.open('Get', './stats.json');
-    client.onreadystatechange = function() {
-      content.innerText = "";
-      stats = JSON.parse(client.responseText);
-
-      for(stat in stats) {
-        content.append(JSON.stringify(stats[stat], null, 2) + "\n");
-      }
-      
-      sort.style.display = "block";
-    }
-    client.send();
-    
-    mp.addEventListener("click", function() {
-      var topPlayedKeys = Object.keys(stats).sort((a, b) => {
-          return stats[b].count - stats[a].count
-      })
-      var final = {};
-      for(x = 0; x < topPlayedKeys.length; x++) {
-        final[topPlayedKeys[x]] = stats[topPlayedKeys[x]];
-      }
-      content.innerText = "";
-      content.append(JSON.stringify(final, null, 2));
-    });
-
-    mg.addEventListener("click", function() {
-      var topGrabbedKeys = Object.keys(stats).sort((a, b) => {
-          return stats[b].totalGrabs - stats[a].totalGrabs
-      })
-      var final = {};
-      for(x = 0; x < topGrabbedKeys.length; x++) {
-        final[topGrabbedKeys[x]] = stats[topGrabbedKeys[x]];
-      }
-      content.innerText = "";
-      content.append(JSON.stringify(final, null, 2));
-    });
-
-    hp.addEventListener("click", function() {
-      let topHotPlayedKeys = Object.keys(stats).sort((a, b) => {
-          return stats[b].mostGrabs - stats[a].mostGrabs
-      })
-
-      var final = {};
-      for(x = 0; x < topHotPlayedKeys.length; x++) {
-        final[topHotPlayedKeys[x]] = stats[topHotPlayedKeys[x]];
-      }
-      content.innerText = "";
-      content.append(JSON.stringify(final, null, 2));
-    })
-  </script>
 </html>

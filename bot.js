@@ -3,16 +3,63 @@ const YouTube = require('youtube-node');
 const fs = require('fs');
 const mysql = require("mysql");
 const compArr = require('./composerArray.js');
+const buildWeb = require('./buildWeb.js');
 let baseCommands = {};
+let mode = "normal";
+let month = new Date().getMonth();
+
 fs.readFile("./keys.json", "utf8", (err, data) => {
     let keys = JSON.parse(data);
 
     main(keys.youtubeKey, keys.dbPassword, keys.botPassword);
 })
 
-fs.readFile("./bot-commands/base.json", "utf8", (err, data) => {
-    baseCommands = JSON.parse(data);
-})
+function fetchBaseCommands() {
+    fs.readFile("./bot-commands/base.json", "utf8", (err, data) => {
+        baseCommands = JSON.parse(data);
+    })
+}
+fetchBaseCommands()
+
+
+function updateMonthlyCommands() {
+    fetchBaseCommands();
+
+    
+    fs.readFile("./monthlyCommands.json", "utf8", (err, data) => {
+        let mCommands = JSON.parse(data);
+        fs.readFile("./bot-commands/commands.json", "utf8", (err, c) => {
+            //console.log(JSON.stringify(c));
+            let commands = JSON.parse(c);
+            mCommands.month = month;
+            mCommands.commands = [];
+            let commandKeys = Object.keys(commands);
+            for(let i = 0; i < 2; i++) {
+
+                random = Math.floor(Math.random() * commandKeys.length - 1);
+                let commandKey = commandKeys[random];
+                console.log(commandKey)
+                let command = {}
+                command[commandKey] = commands[commandKey];
+                commandKeys.splice(random, 1);
+                mCommands.commands.push(command);
+            }
+
+            fs.writeFile("./monthlyCommands.json", JSON.stringify(mCommands), err => console.log(err));
+        })
+            
+        monthlyCommandString = "Commands of the month: ";
+        mCommands.commands.forEach(obj => {
+            if(Object.keys(obj).length != 0) {
+                let key = Object.keys(obj)[0]
+                baseCommands[key] = obj[key];
+                monthlyCommandString += key.split("|").join(", ") + ", ";
+
+            }
+        })
+    })
+}
+
 
 function main(youtubeKey, dbPassword, botPassword) {
     let YT = new YouTube();
@@ -98,16 +145,13 @@ function main(youtubeKey, dbPassword, botPassword) {
 
         let currentSong = {};
         let currentDJ;
-        //let blacklistingUser = "";
         
         function shouldUpDub() {
             if(bot.getMedia()) {
-                //blacklistingUser = "";
                 let song = bot.getMedia();
                 let {id, name, type, fkid} = bot.getMedia();
                 
                 if (currentId != id) {
-                    console.log("NEW SONG")
                     if(currentId) {
                         updateSong(JSON.parse(JSON.stringify(currentSong)), JSON.parse(JSON.stringify(currentDJ)))
                     }
@@ -130,6 +174,12 @@ function main(youtubeKey, dbPassword, botPassword) {
             } else {
                 setTimeout(() => {shouldUpDub(true)}, 10000);
             }
+
+            //if(new Date().getMonth() != month) {
+                //month = new Date().getMonth();
+                //updateMonthlyCommands();
+                //bot.sendChat("Featured commands have been updated.");
+            //}
         }
 
         function updateSong(songObj, djObj, callback=null) {
@@ -146,7 +196,8 @@ function main(youtubeKey, dbPassword, botPassword) {
                     tgs += res[0].totalGrabs;
                     connection.query(`UPDATE songs SET plays=${plays + 1}, totalGrabs=${tgs}, mostGrabs=${mostGrabs} WHERE id="${id}"`)
                 } else {
-                    queryString = `INSERT INTO songs VALUES("${id}", 0, ${tgs}, "${name.replace(/"/g, '\\"')}", "${type}", "${fkid}", ${tgs})`;
+                    plays = (callback != null) ? 0 : 1;
+                    queryString = `INSERT INTO songs VALUES("${id}", ${plays}, ${tgs}, "${name.replace(/"/g, '\\"')}", "${type}", "${fkid}", ${tgs})`;
                     console.log(queryString);
                     connection.query(queryString)
                     if(callback != null) {
@@ -161,7 +212,11 @@ function main(youtubeKey, dbPassword, botPassword) {
         let time = times[Math.floor(Math.random() * times.length)];
         setTimeout(() => { startRoullete() }, time);
         function startRoullete() {
-            bot.sendChat("@maestroBot !r");
+            if(mode == "normal") {
+                bot.sendChat("@maestroBot !r");
+            }
+            
+            
             // random time
             time = times[Math.floor(Math.random() * times.length)];
             setTimeout(() => { startRoullete() }, time);
@@ -170,6 +225,7 @@ function main(youtubeKey, dbPassword, botPassword) {
         function updateUser(user, callback) {
             let uid = bot.getUserByName(user).id;
             let role = bot.getUserByName(user).role
+            //connection.query(`S`)
             fs.readFile('./users.json',"utf8", (err, data) => {
                 let stats = JSON.parse(data);
                 stats[uid] = stats[uid] || {"wins": 0, "username": user};
@@ -182,6 +238,26 @@ function main(youtubeKey, dbPassword, botPassword) {
                     if(err) throw err;
                     callback();
                 })
+            })
+        }
+
+        function ping() {
+            connection.query(`SELECT * FROM pings WHERE entity="maestro"`, (err, res, fields) => {
+                bot.sendChat(`Ping: ${res[0].ping + 1}`);
+                if(res.length != 0) connection.query(`UPDATE pings SET ping=${res[0].ping + 1} WHERE entity="maestro"`);
+            });
+        }
+
+        function exit() {
+            
+            bot.disconnect();
+
+            process.exit();
+        }
+
+        function userCount() {
+            connection.query("SELECT COUNT(*) AS COUNT FROM users", (err, res, fields) => {
+                return res[0].COUNT
             })
         }
 
@@ -218,6 +294,20 @@ function main(youtubeKey, dbPassword, botPassword) {
                 return false;
             }
 
+            if(message.includes("!mode") && approveUser(user) && message.split(' ').length == 2) {
+                if(message.split(' ')[1] == "silent") {
+                    bot.sendChat("Going into silent mode. `!mode normal` to return to normal mode.")
+                    mode = "silent";
+                } else if(message.split(' ')[1] == "normal") {
+                    bot.sendChat("Returning to normal mode.")
+                    mode = "normal";
+                }
+            }
+
+            if(mode == "silent") {
+                return true; // Just return, do not proccess anything, silent mode
+            }
+
             if(message == "!count" && user == "edwin0259") {
                 connection.query("SELECT COUNT(*) AS COUNT FROM songs", (err, res, fields) => {
                     console.log(res[0].COUNT)
@@ -238,6 +328,27 @@ function main(youtubeKey, dbPassword, botPassword) {
                 //bot.sendChat(`ID: ${id}`);
 
                 getStats(id, idSelected);
+            }
+
+            if(message.includes("!ping") && user == "edwin0259") {
+                ping();
+            }
+
+            if(message == "!refresh" && approveUser(user)) {
+                bot.sendChat("Refreshing, brb :wave:");
+                setTimeout(exit, 5000);
+            }
+            if(message == "!build" && user == "edwin0259") {
+                buildWeb.website();
+            }
+            if(message == "!exit" && user == "edwin0259") {
+                 bot.sendChat("Disconnecting, goodbye.");
+                setTimeout(exit, 5000);
+            }
+
+            if(message == "!limbo" && user == "edwin0259") {
+                bot.sendChat(":dancer:")
+                bot.disconnect();
             }
             
             if(message == "!topgrabbed") {
@@ -272,7 +383,20 @@ function main(youtubeKey, dbPassword, botPassword) {
 
             if(message == "!info") {
                 let queryUser = user;
+                
+                let usr = bot.getUserByName(queryUser);
+                /*
+                let totalUsers = userCount();
+                
                 //bot.sendChat('This feature is still experimental.')
+                connection.query(`SET @pos = 0; SELECT * FROM (SELECT @pos := @pos + 1 as pos, id, username, wins, totalGrabs FROM users ORDER BY wins DESC) users WHERE username="${usr.id}"`, (err, res, fields) => {
+                    if(res.length != 0) {
+
+                        bot.sendChat(`*${usr.username}*\nWins: `)
+                    } else {
+                        bot.sendChat("This user doesn't exist yet..");
+                    }
+                });*/
                 fs.readFile('./users.json',"utf8", (err, data) => {
                     let users = JSON.parse(data);
                     let usernames = {};
@@ -296,10 +420,6 @@ function main(youtubeKey, dbPassword, botPassword) {
                         bot.sendChat('User is not registered.');
                     }
                 });
-            }
-            
-            if(message == "!commands" || message == "!help") {
-                bot.sendChat("Commands are: !stats, !sign, !mostplayed, !topgrabbed, !hotplays, !winners, !info, !afk, !lastseen, !suggestion, !issue");
             }
 
             if(message == "!issue" || message == "!suggestion") {

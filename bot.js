@@ -344,7 +344,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                 setTimeout(exit, 5000);
             }
             if(message == "!build" && user == "edwin0259") {
-                buildWeb.website(sendChat);
+                buildWeb.website(connection, sendChat);
             }
             if(message == "!exit" && user == "edwin0259") {
                  bot.sendChat("Disconnecting, goodbye.");

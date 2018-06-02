@@ -2,12 +2,6 @@ const fs = require('fs');
 const mysql = require("mysql");
 const shell = require('shelljs');
 
-dbPassword = "";
-fs.readFile("./keys.json", "utf8", (err, data) => {
-    let keys = JSON.parse(data);
-    dbPassword = keys.dbPassword;
-})
-
 function genTableData(res, keyMatch) {
     let headerData = "";
     let data = "";
@@ -40,14 +34,9 @@ function genTableData(res, keyMatch) {
     return data;
 }
 
-function initWebsite(callback="") {
-  const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: dbPassword,
-      database: 'limitless',
-      charset: 'utf8mb4_general_ci'
-  })
+function initWebsite(connection, callback="") {
+  if(callback) callback("Building Website..")
+  
   let playData, mostGrabData, hotPlayData;
   connection.query(`SELECT * FROM songs ORDER BY plays DESC LIMIT 100;`, (err, res, fields) => {
     playData = genTableData(res, "plays");
@@ -59,7 +48,7 @@ function initWebsite(callback="") {
     hotPlayData = genTableData(res, "mostGrabs");
     buildWebsite(playData, mostGrabData, hotPlayData, callback);
   });
-  if(callback) callback("Building Website..")
+  
   connection.end();
 }
 

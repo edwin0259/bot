@@ -1,5 +1,6 @@
 const fs = require('fs');
 const mysql = require("mysql");
+const shell = require('shelljs');
 
 dbPassword = "";
 fs.readFile("./keys.json", "utf8", (err, data) => {
@@ -41,7 +42,7 @@ function genTableData(res, keyMatch) {
     return data;
 }
 
-function initWebsite() {
+function initWebsite(callback="") {
   const connection = mysql.createConnection({
       host: 'localhost',
       user: 'root',
@@ -58,13 +59,14 @@ function initWebsite() {
   });
   connection.query(`SELECT * FROM songs ORDER BY mostGrabs DESC LIMIT 100;`, (err, res, fields) => {
     hotPlayData = genTableData(res, "mostGrabs");
-    buildWebsite(playData, mostGrabData, hotPlayData);
+    buildWebsite(playData, mostGrabData, hotPlayData, callback);
   });
-
+  if(callback) callback("Building Website..")
   connection.end();
 }
 
-function buildWebsite(playData, mostGrabData, hotPlayData) {
+function buildWebsite(playData, mostGrabData, hotPlayData, callback) {
+  var d = new Date();
   template = 
 `
 <!DOCTYPE HTML>
@@ -74,7 +76,13 @@ function buildWebsite(playData, mostGrabData, hotPlayData) {
     <link rel="stylesheet" href="stats.css">
   </head>
   <body>
-    <h1 class="header">Limitless Statistics<image class="logo" src="./images/dubLogo.jpg"/></h1>
+    <div class="header">
+      <div class="imageContainer">
+        <image class="logo" src="./images/dubLogo.jpg"/>
+      </div>
+      <h1>Limitless Statistics</h1>
+      <small class="lastUpdated">Last Updated: ${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}</small>
+    </div>
     <div class="buttonOptions">
       <button id="mostPlayedBtn" class="option">Most Played</button>
       <button id="mostGrabbedBtn" class="option">Most Grabbed</button>
@@ -95,9 +103,13 @@ function buildWebsite(playData, mostGrabData, hotPlayData) {
 `
   fs.writeFile("stats.html", template, 'utf8', err => {
     if(err) {
-      console.log(err);
+      if(callback) callback(err)
       return err;
+    } else {
+      shell.exec('commit.sh')
     }
+
+    if(callback) callback("Website build :hammer:, stats should be updated soon.")
   })
 }
 

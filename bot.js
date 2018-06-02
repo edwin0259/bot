@@ -349,10 +349,11 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
             if(message == "!build" && user == "edwin0259") {
                 bot.sendChat("Building Website..");
-                setTimeout(buildWebsite, 5000);
+                console.log(`BUILDING WEBSITE, TRIGGERED BY: ${user}`)
+                setTimeout(buildWebsite, 10000);
             }
             if(message == "!exit" && user == "edwin0259") {
-                 bot.sendChat("Disconnecting, goodbye.");
+                bot.sendChat("Disconnecting, goodbye.");
                 setTimeout(exit, 5000);
             }
 

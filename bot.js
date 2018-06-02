@@ -241,6 +241,11 @@ function main(youtubeKey, dbPassword, botPassword) {
             })
         }
 
+        // callback function for external scripts
+        function sendChat(message) {
+            bot.sendChat(message);
+        }
+
         function ping() {
             connection.query(`SELECT * FROM pings WHERE entity="maestro"`, (err, res, fields) => {
                 bot.sendChat(`Ping: ${res[0].ping + 1}`);
@@ -339,7 +344,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                 setTimeout(exit, 5000);
             }
             if(message == "!build" && user == "edwin0259") {
-                buildWeb.website();
+                buildWeb.website(sendChat);
             }
             if(message == "!exit" && user == "edwin0259") {
                  bot.sendChat("Disconnecting, goodbye.");

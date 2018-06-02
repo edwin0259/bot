@@ -35,8 +35,7 @@ function genTableData(res, keyMatch) {
 }
 
 function initWebsite(connection, callback="") {
-  if(callback) callback("Building Website..")
-  
+  console.log("BUILDING WEBSITE");
   let playData, mostGrabData, hotPlayData;
   connection.query(`SELECT * FROM songs ORDER BY plays DESC LIMIT 100;`, (err, res, fields) => {
     playData = genTableData(res, "plays");

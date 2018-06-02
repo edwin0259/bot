@@ -6,6 +6,7 @@ let dbPassword = "";
 fs.readFile("./keys.json", "utf8", (err, data) => {
     let keys = JSON.parse(data);
     dbPassword = keys.dbPassword;
+    initWebsite();
 })
 
 function genTableData(res, keyMatch) {

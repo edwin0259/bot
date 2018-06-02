@@ -22,7 +22,7 @@ body {
 }
 
 .imageContainer {
-  width: 150px;
+  width: 200px;
   height: 50px;
 }
 
@@ -33,7 +33,7 @@ body {
 
 .lastUpdated {
   top: 0px;
-  width: 150px;
+  width: 200px;
 }
 
 h1 {

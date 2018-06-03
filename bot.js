@@ -115,7 +115,7 @@ function main(youtubeKey, dbPassword, botPassword) {
 
         bot.on(bot.events.userJoin, (data) => {
             console.log(data.user.username + " has joined.");
-            updateUser(data.user.username, () => {});
+            updateUser(data.user);
         })
 
         let totalGrabs = 0;
@@ -205,7 +205,14 @@ function main(youtubeKey, dbPassword, botPassword) {
                     }
                 }
             });
-            
+            // Add totalGrabs to user who played song
+            connection.query(`SELECT * FROM users WHERE id="${djObj.id}"`, (err, res, fields) => {
+                if(res.length != 0 && tgs > 0) {
+                    connection.query(`UPDATE users SET totalGrabs="${res[0].totalGrabs + tgs}" WHERE id="${djObj.id}"`);
+                } else {
+                    createUser(djObj);
+                }
+            })
         }
 
         let times = [3000000, 3600000, 2400000];
@@ -222,23 +229,44 @@ function main(youtubeKey, dbPassword, botPassword) {
             setTimeout(() => { startRoullete() }, time);
         }
 
-        function updateUser(user, callback) {
-            let uid = bot.getUserByName(user).id;
-            let role = bot.getUserByName(user).role
-            //connection.query(`S`)
-            fs.readFile('./users.json',"utf8", (err, data) => {
-                let stats = JSON.parse(data);
-                stats[uid] = stats[uid] || {"wins": 0, "username": user};
-                if(typeof stats[uid].username == "undefined" || stats[uid].username != user) {
-                    stats[uid].username = user;
+        function createUser(usr, callback="") {
+            console.log(usr)
+            console.log("CREATING USER");
+            let d = new Date();
+            connection.query(`INSERT INTO users VALUES("${usr.id}", "${usr.username}", 0, 0, "${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}", "${usr.role || "null"}")`);
+            if(callback) callback();
+        }
+
+        function updateUser(usr, callback="", optionalSet="") {
+            console.log("UPDATING USER");
+            connection.query(`SELECT * FROM users WHERE id="${usr.id}"`, (err, res, fields) => {
+                if(res.length != 0) {
+                    let d = new Date();
+                    connection.query(`UPDATE users SET username="${usr.username}", lastSeen="${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}", role="${usr.role || "null"}" WHERE id="${usr.id}"`);
+                } else {
+                    if(callback) {
+                        createUser(usr, () => callback());
+                    } else {
+                        createUser(usr);
+                    }
                 }
-                stats[uid].lastSeen = new Date;
-                stats[uid].role = role || "null"
-                fs.writeFile('./users.json', JSON.stringify(stats), (err) => {
-                    if(err) throw err;
-                    callback();
-                })
-            })
+            });
+        }
+
+        function getUser(usr) {
+            userCount((count) => {
+                totalUsers = count;
+            
+                connection.query("SET @pos = 0;");
+                connection.query(`SELECT * FROM (SELECT @pos := @pos + 1 as pos, id, username, wins, totalGrabs FROM users ORDER BY wins DESC) users WHERE id="${usr.id}";`, (err, res, fields) => {
+                    if(res.length != 0) {
+                        bot.sendChat(`*${usr.username}*`);
+                        bot.sendChat(`\nWins: ${res[0].wins} (${res[0].pos}/${totalUsers})\nGrabs Received: ${res[0].totalGrabs}`);
+                    } else {
+                        updateUser(usr, () => getUser(user));
+                    }
+                });
+            });
         }
 
         // callback function for external scripts
@@ -264,9 +292,9 @@ function main(youtubeKey, dbPassword, botPassword) {
             process.exit();
         }
 
-        function userCount() {
+        function userCount(callback) {
             connection.query("SELECT COUNT(*) AS COUNT FROM users", (err, res, fields) => {
-                return res[0].COUNT
+                callback(res[0].COUNT)
             })
         }
 
@@ -392,45 +420,16 @@ function main(youtubeKey, dbPassword, botPassword) {
                 });
             }
 
+            if(message.includes("!info") && user == "edwin0259") {
+                let usr = bot.getUserByName(message.split(' ')[1]);
+                getUser(usr);
+            }
+
             if(message == "!info") {
                 let queryUser = user;
-                
                 let usr = bot.getUserByName(queryUser);
-                /*
-                let totalUsers = userCount();
                 
-                //bot.sendChat('This feature is still experimental.')
-                connection.query(`SET @pos = 0; SELECT * FROM (SELECT @pos := @pos + 1 as pos, id, username, wins, totalGrabs FROM users ORDER BY wins DESC) users WHERE username="${usr.id}"`, (err, res, fields) => {
-                    if(res.length != 0) {
-
-                        bot.sendChat(`*${usr.username}*\nWins: `)
-                    } else {
-                        bot.sendChat("This user doesn't exist yet..");
-                    }
-                });*/
-                fs.readFile('./users.json',"utf8", (err, data) => {
-                    let users = JSON.parse(data);
-                    let usernames = {};
-                    let usr = bot.getUserByName(queryUser);
-                    // If user is found and id is not found in users file.
-                    let sortedWins = Object.keys(users).sort((a, b) => {
-                        return users[b].wins - users[a].wins
-                    })
-                    if(usr && !users[usr.id]) {
-                        updateUser(queryUser, () => {
-                            bot.sendChat('You have just been added to users, try again.');
-                        })
-                    } else if (users[usr.id]) {
-                        let userInFile = users[usr.id];
-                        bot.sendChat(`User: ${queryUser}`);
-                        bot.sendChat(`Wins: ${userInFile.wins} (${sortedWins.indexOf(usr.id) + 1}/${sortedWins.length})`);
-                        if(userInFile.totalGrabs != undefined) {
-                            bot.sendChat(`Grabs Received: ${userInFile.totalGrabs}`);
-                        }
-                    } else {
-                        bot.sendChat('User is not registered.');
-                    }
-                });
+                getUser(usr);
             }
 
             if(message == "!issue" || message == "!suggestion") {
@@ -452,16 +451,14 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
 
             if(message == "!winners") {
-                fs.readFile('./users.json',"utf8", (err, data) => {
-                    let stats = JSON.parse(data);
-                    let topPlayerKeys = Object.keys(stats).sort((a, b) => {
-                        return stats[b].wins - stats[a].wins
-                    })
-                    bot.sendChat('Users with the most wins:');
-                    for(let x = 0; x < 3; x++) {
-                        if(topPlayerKeys[x]) {
-                            bot.sendChat(`${stats[topPlayerKeys[x]].username} - ${stats[topPlayerKeys[x]].wins}`);
-                        }
+                connection.query(`SELECT * FROM users ORDER BY wins DESC LIMIT 3`, (err, res, fields) => {
+                    if(res.length != 0) {
+                        bot.sendChat("Users with the most wins:");
+                        res.forEach(user => {
+                            bot.sendChat(`${user.username} - ${user.wins}`);
+                        })
+                    } else {
+                        bot.sendChat("I was unable to fetch the winners :(");
                     }
                 })
             }
@@ -500,31 +497,19 @@ function main(youtubeKey, dbPassword, botPassword) {
                         bot.sendChat('User has left queue, trying again.')
                         setTimeout(endRoulette, 10000);
                     } else if(bot.getUserByName(winner)) {
-                        let uid = bot.getUserByName(winner).id;
-                        let role = bot.getUserByName(winner).role
-                        fs.readFile('./users.json',"utf8", (err, data) => {
-                            let users = JSON.parse(data);
-                            users[uid] = users[uid] || {};
-                            users[uid].wins = users[uid].wins + 1 || 1;
-                            users[uid].role = role || "null";
-                            if(!users[uid].username || users[uid].username != winner) {
-                                users[uid].username = winner;
-                                console.log(users[uid].username);
+                        usr = bot.getUserByName(winner);
+                        //let role = bot.getUserByName(winner).role
+                        connection.query(`SELECT * FROM users WHERE id="${usr.id}";`, (err, res, fields) => {
+                            if(res.length != 0) {
+                                user = res[0];
+                                let d = new Date();
+                                connection.query(`UPDATE users SET wins=${user.wins + 1}, username="${winner}", lastSeen="${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}", role="${usr.role || "null"}" WHERE id="${usr.id}"`)
+                                console.log("WINNER: " + winner);
+                            } else {
+                                createUser(usr);
                             }
-
-                            bot.getUsers().reduce((arr, user) => {
-                                arr.push(user.id);
-                                return arr;
-                            }, []).forEach(u => {
-                                if(users[u]) {
-                                    users[u].lastSeen = new Date;
-                                }
-                            })
-
-                            fs.writeFile('./users.json', JSON.stringify(users), (err) => {
-                                if(err) throw err;
-                            })
                         })
+                       
                         bot.sendChat(`Moving ${winner} to position 1`);
                         bot.moderateMoveDJ(users[entered[n]], 0);
                         entered = [];
@@ -608,6 +593,8 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
 
             if(message.includes("!lastseenlist") && approveUser(user)) {
+                bot.sendChat("Not available temporarily.");
+                return
                 let staff = ["iotadart","kessu","sheena1990","aldersees","sharp","alise","Swivy","Kyuto","theinfinite","Inspector420","FruitKake","DUSTY_MCDUSENBERG","Neoblackguard","spanky","DracusApollyonPhoenix","maestroBot","DJRevenant - C","DJRevenant - C","DJRevenant - C","flat","the1xman","MarianCavlovic","Mozzle","bimmyohara","solstitialcold","Syntheract","ANDREW_S","fru","lia","Puffin","esoteric","tripster","AdvaGoldfreind","Monstah","LiuseRooney","Yung_Kanax","Eleftheria","Ganjaman","Rayadito","tay.justine","Giupatamon","grendel462","HowCanINotHentai","DB-Cooper","Darkiss","LOISTAVA","Reforced","Zuzana","queenofthekittys","TanyaOgr","Zerro","TAYLORR","UnitedHell","Citramon","Yurei","playjoyx","noaltcodessadface","KannibleKlown","cloudysierra","314ro","skippy01","Risblood","Lili","lashundra","SeaCucumber","dp","davd2017","funkynoiz","inthefade","ZennaTiffany","slyconrad","ibi","Kurotsuno","domshoe","epicnate98","testiculartorsion","Kaebsong","Riyuuta","Clifford","Sharonne","hadone","fork","Nieknuggets","grimmusic","arontjuh","TheBiggestBoss","platypus","Teamp","GXLLX","AspirationDeath","Akiruru","Dionisio","Nibzy","ferzrrn","Grimantis","djarkanoid","trunkbass","misaki","1029chrisB","EMPTYCage","HappyHarold","Denski","wwaavvyy","ufuksarp","tewcurll","bubu2bubu","visualkitten","hellcat","_brandon_","sirpansylot","lCookiesl","Papapoof","pmys","seanmcswiggan","RidingSerena","TwelveShillings","30thCenturyMan","its_david_again","dday694","HerrZafft","Mousecel","Herbie","moistcarrot","Aslin","joshlmao","latadelixo","PotatoBread23","J3THUsoldier","Here2fukuupm8","NotJuan","TheDirtyRomancer","Tooqie1","puggarooreid","ZarUnity","Timberg","LUGUBRIOUS","Ukam","shiltoner","TheDoctorPandass","Anonononon","IxVingPk","sleeping_moose","Asllani","DarthNihilus","farnmut","Aphelion","Sextans","SierraBeach","qwre9","Crimsonze","ItsMeJunior","Stickstack","pastorkoala_mmango","Spectres","LifeSav3r","LordDilip","0ceanMan","Azatha","GandalfTheMetal","Pulltheleverkronk2266","Adylas","Mordecaii","thomascookiehead","Violator","HellcatHijinx","nuit","Josh_15","Atrocity_","isChachi","hydroknight","RaFaXfLaSh","Music","ThePinkMoon","SaikaTotsuka","GabrielG.N","orangicle","Moonrasor","Mirindiba","genderAss00mer","zero_ataraxia","ayylmao_damen","TacticalTracer","doodlewang","SCOOPS","Angkasawan","King_Satanas_Holokaustos","PsychoGoat","nightowlsociety","HiBEARnation","lurd","GotShrimpBoi","EFoE","Mario_bro","Doniel","FraggleRock","Johrm","sonicstaff","Sweet__Leaf","JosephineLee","koiebee","ZafkiElohim","FuzzyFoofi","mystem","wowoopwoopwo","ciri","MaxChandeliers","nonvoyezme","Samsus","spasticbutterfree","poent","JoJosfanboy","ModestyBlaise","Dragunlucas","MrMe","Theuso","Plati","MathR.","FedericoReali","Mathmaticcs","Douchebag","F0x3r","Guimaroes","Evellyn","JohnRoth","mrmcpunchface","KingkoPop","knaet","LoLotad","GabrielSunlight","MyFeetAreCute","Deepcold","KeyOst","teamdippy4lyfe","GarlandChaos","prazision","mouveon","TOYSTHATK1LL","laspelotastristes","FukuCuku","Mieko","RAW-Hardstyle","Unseen_Charmer","OreoSpeedwgn","solaar","Moclath","Rivalry","babalin","SHUGAH","Pop2222","chuckleslovakia","KySoon","SkyFlare","Achyrashi","averagedork255","_th3sister","DinduMuffins","SycaiDefranco","UntamedAnomaly","STLTH","TrapsAintGay","Mokou","FujiwaraMokou","http.bry","DNE","Y.Ho","8.29","Lazyabe","Prophessor","AfluxD","DakotaSpalsbury","McBigMouse","Honkey","Arrikii","LehFez","Habacuc","Aclion","WickedDeathKilla","loleq80","boots-n-pants-n-boots-n-pants","IsraelLeite","Kajakoro","Bezonian","MadNESS_","Leilaila","Nel","jmart","TenzinKhan","den_drummer","2312313","vlastelin","Alexsa","RedneckPieceOfWhiteTrash","nelo","MissT","GustavForsbergZ1","UltraliteBeamz","Kanari","LeticiaBelm","Mr.Cornflakes","lionanisimov","sigmundvoid","Kthulhu","NaneekMot","Fazerina","Betellgeuse","drumloaf","Balonso","Ahiru","Parden"];
                 let months = message.split(' ')[1];
                 console.log()
@@ -635,6 +622,8 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
 
             if(message.includes("!lastseen") && message.split(' ').length == 2 && message.split(' ')[0] == "!lastseen" && (approveUser(user) || user == "edwin0259")) {
+                bot.sendChat("Not available temporarily.");
+                return
                 let u = message.split(' ')[1];
                 let found = false;
                 fs.readFile('./users.json',"utf8", (err, data) => {

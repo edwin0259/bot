@@ -57,15 +57,21 @@ function initWebsite(callback="") {
   });
   connection.query(`SELECT * FROM songs ORDER BY mostGrabs DESC LIMIT 100;`, (err, res, fields) => {
     hotPlayData = genTableData(res, "mostGrabs");
-    buildWebsite(playData, mostGrabData, hotPlayData, callback);
+  });
+  connection.query(`SELECT * FROM users ORDER BY wins DESC LIMIT 100;`, (err, res, fields) => {
+    userWinData = genTableData(res, "wins");
+  });
+  connection.query(`SELECT * FROM users ORDER BY totalGrabs DESC LIMIT 100;`, (err, res, fields) => {
+    userGrabData = genTableData(res, "totalGrabs");
+    buildWebsite(playData, mostGrabData, hotPlayData, userWinData, userGrabData, callback);
   });
   
   connection.end();
 }
 
-function buildWebsite(playData, mostGrabData, hotPlayData, callback) {
+function buildWebsite(playData, mostGrabData, hotPlayData, userWinData, userGrabData, callback) {
   var d = new Date();
-  template = 
+  statsTemplate = 
 `
 <!DOCTYPE HTML>
 <html>
@@ -99,9 +105,47 @@ function buildWebsite(playData, mostGrabData, hotPlayData, callback) {
   </body>
 </html>
 `
-  fs.writeFile("stats.html", template, 'utf8', err => {
+
+usersTemplate = 
+`
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Users</title>
+    <link rel="stylesheet" href="stats.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="imageContainer">
+        <image class="logo" src="./images/dubLogo.jpg"/>
+      </div>
+      <h1>Limitless Users</h1>
+      <small class="lastUpdated">Last Updated: ${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}</small>
+    </div>
+    <div class="buttonOptions">
+      <button id="mostWinsBtn" class="option">Most Wins</button>
+      <button id="mostGrabsBtn" class="option">Grabs Received</button>
+    </div>
+    <table id="mostWins">
+      ${userWinData}
+    </table>
+    <table id="mostGrabs">
+      ${userGrabData}
+    </table>
+    <script src="users.js"></script>
+  </body>
+</html>
+`
+  fs.writeFile("stats.html", statsTemplate, 'utf8', err => {
     if(err) {
       if(callback) callback(err)
+      return err;
+    }  
+  })
+
+  fs.writeFile("users.html", usersTemplate, 'utf8', err => {
+    if(err) {
+      if(callback) callback(err);
       return err;
     }
     
@@ -111,7 +155,6 @@ function buildWebsite(playData, mostGrabData, hotPlayData, callback) {
       }
       if(callback) callback("Website built :hammer:. Everything might take a moment to update.")
     })
-    
   })
 }
 

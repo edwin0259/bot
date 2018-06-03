@@ -207,8 +207,10 @@ function main(youtubeKey, dbPassword, botPassword) {
             });
             // Add totalGrabs to user who played song
             connection.query(`SELECT * FROM users WHERE id="${djObj.id}"`, (err, res, fields) => {
-                if(res.length != 0 && tgs > 0) {
-                    connection.query(`UPDATE users SET totalGrabs="${res[0].totalGrabs + tgs}" WHERE id="${djObj.id}"`);
+                if(res.length != 0) {
+                    if(tgs > 0) {
+                        connection.query(`UPDATE users SET totalGrabs="${res[0].totalGrabs + tgs}" WHERE id="${djObj.id}"`);
+                    }
                 } else {
                     createUser(djObj);
                 }

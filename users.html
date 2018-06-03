@@ -1,83 +1,1644 @@
+
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8"/>
     <title>Users</title>
+    <link rel="stylesheet" href="stats.css">
   </head>
   <body>
-    <a href="index.html">Home</a>
-    <div class="sort">
-      <h3>Sort Stats</h3>
-      <button id="w">Wins</button>
-      <button id="tg">Total grabs (recieved)</button>
+    <div class="header">
+      <div class="imageContainer">
+        <image class="logo" src="./images/dubLogo.jpg"/>
+      </div>
+      <h1>Limitless Users</h1>
+      <small class="lastUpdated">Last Updated: 6/3/2018</small>
     </div>
-    <pre class="content">
-      Loading..
-    </pre>
+    <div class="buttonOptions">
+      <button id="mostWinsBtn" class="option">Most Wins</button>
+      <button id="mostGrabsBtn" class="option">Grabs Received</button>
+    </div>
+    <table id="mostWins">
+      <tr class="tableHeaders">
+  <th>username</th>
+<th>wins</th>
+<th>total grabs</th>
+<th>last seen</th>
+<th>role</th>
+
+</tr>
+<tr>
+  <td>Neoblackguard</td>
+<td class="selectedCol">1093</td>
+<td>330</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>Inspector420</td>
+<td class="selectedCol">511</td>
+<td>724</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>Mozzle</td>
+<td class="selectedCol">427</td>
+<td>324</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>playjoyx</td>
+<td class="selectedCol">421</td>
+<td>566</td>
+<td>6/2/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>DJRevenant</td>
+<td class="selectedCol">367</td>
+<td>1683</td>
+<td>6/2/2018</td>
+<td>5615fa9ae596154a5c000000</td>
+
+</tr>
+<tr>
+  <td>DUSTY_MCDUSENBERG</td>
+<td class="selectedCol">328</td>
+<td>917</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>TanyaOgr</td>
+<td class="selectedCol">281</td>
+<td>624</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Zuzana</td>
+<td class="selectedCol">275</td>
+<td>377</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Reforced</td>
+<td class="selectedCol">177</td>
+<td>325</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>algarvitto</td>
+<td class="selectedCol">160</td>
+<td>182</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>grendel462</td>
+<td class="selectedCol">150</td>
+<td>623</td>
+<td>2018-06-02T04:44:20.727Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>CaliB</td>
+<td class="selectedCol">142</td>
+<td>350</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>TAYLORR</td>
+<td class="selectedCol">142</td>
+<td>327</td>
+<td>2018-06-02T17:09:48.179Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>headietwo</td>
+<td class="selectedCol">114</td>
+<td>70</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>LOISTAVA</td>
+<td class="selectedCol">113</td>
+<td>349</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>UnitedHell</td>
+<td class="selectedCol">107</td>
+<td>99</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>DracusApollyonPhoenix</td>
+<td class="selectedCol">97</td>
+<td>447</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>edwin0259</td>
+<td class="selectedCol">96</td>
+<td>313</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>UntamedAnomaly</td>
+<td class="selectedCol">92</td>
+<td>105</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>flat</td>
+<td class="selectedCol">84</td>
+<td>433</td>
+<td>6/2/2018</td>
+<td>5615fd84e596150061000003</td>
+
+</tr>
+<tr>
+  <td>KannibleKlown</td>
+<td class="selectedCol">76</td>
+<td>77</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Citramon</td>
+<td class="selectedCol">75</td>
+<td>177</td>
+<td>2018-02-24T00:46:15.182Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Pop2222</td>
+<td class="selectedCol">64</td>
+<td>124</td>
+<td>2018-06-02T04:44:20.727Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>spanky</td>
+<td class="selectedCol">62</td>
+<td>613</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>HowCanINotHentai</td>
+<td class="selectedCol">62</td>
+<td>278</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Yurei</td>
+<td class="selectedCol">62</td>
+<td>245</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>buckycarbon</td>
+<td class="selectedCol">52</td>
+<td>86</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>doodlewang</td>
+<td class="selectedCol">50</td>
+<td>142</td>
+<td>2018-04-17T07:54:26.139Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>GabrielG.N</td>
+<td class="selectedCol">50</td>
+<td>66</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Parden</td>
+<td class="selectedCol">50</td>
+<td>153</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>MarianCavlovic</td>
+<td class="selectedCol">45</td>
+<td>121</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>5615fd84e596150061000003</td>
+
+</tr>
+<tr>
+  <td>Giupatamon</td>
+<td class="selectedCol">40</td>
+<td>126</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Monstah</td>
+<td class="selectedCol">35</td>
+<td>317</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>TrapsAintGay</td>
+<td class="selectedCol">33</td>
+<td>100</td>
+<td>2018-03-15T04:14:31.840Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>bimmyohara</td>
+<td class="selectedCol">32</td>
+<td>57</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>JosephineLee</td>
+<td class="selectedCol">32</td>
+<td>52</td>
+<td>2017-12-25T11:28:37.830Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>Syntheract</td>
+<td class="selectedCol">31</td>
+<td>90</td>
+<td>2018-02-24T00:46:15.182Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>AryaxZ</td>
+<td class="selectedCol">30</td>
+<td>22</td>
+<td>2018-05-16T23:55:27.691Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>skippy01</td>
+<td class="selectedCol">26</td>
+<td>72</td>
+<td>2018-06-02T17:09:48.179Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>jmart</td>
+<td class="selectedCol">26</td>
+<td>73</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>gorshok_umer</td>
+<td class="selectedCol">26</td>
+<td>47</td>
+<td>6/2/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>sheena1990</td>
+<td class="selectedCol">25</td>
+<td>116</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>Zerro</td>
+<td class="selectedCol">25</td>
+<td>54</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>chuckleslovakia</td>
+<td class="selectedCol">25</td>
+<td>60</td>
+<td>2018-04-02T17:27:19.273Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>solstitialcold</td>
+<td class="selectedCol">24</td>
+<td>31</td>
+<td>2018-02-19T02:21:54.338Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>MrHuman</td>
+<td class="selectedCol">23</td>
+<td>36</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>typeMARS</td>
+<td class="selectedCol">23</td>
+<td>42</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>aldersees</td>
+<td class="selectedCol">22</td>
+<td>83</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>koiebee</td>
+<td class="selectedCol">21</td>
+<td>35</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Darkiss</td>
+<td class="selectedCol">20</td>
+<td>85</td>
+<td>2018-05-16T23:55:27.691Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Jaredgentry123</td>
+<td class="selectedCol">20</td>
+<td>38</td>
+<td>2017-12-18T02:18:23.702Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>0ceanMan</td>
+<td class="selectedCol">19</td>
+<td>48</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>lionanisimov</td>
+<td class="selectedCol">18</td>
+<td>167</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Yung_Kanax</td>
+<td class="selectedCol">18</td>
+<td>50</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>tay.justine</td>
+<td class="selectedCol">18</td>
+<td>56</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>ANDREW_S</td>
+<td class="selectedCol">17</td>
+<td>101</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>NotJuan</td>
+<td class="selectedCol">15</td>
+<td>15</td>
+<td>2018-04-01T05:49:27.860Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Knightly</td>
+<td class="selectedCol">15</td>
+<td>46</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>BookBird</td>
+<td class="selectedCol">14</td>
+<td>25</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>spasticbutterfree</td>
+<td class="selectedCol">13</td>
+<td>31</td>
+<td>2017-11-06T23:45:55.499Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>Mousecel</td>
+<td class="selectedCol">13</td>
+<td>27</td>
+<td>2018-04-01T05:49:27.860Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Fazerina</td>
+<td class="selectedCol">12</td>
+<td>14</td>
+<td>2018-01-09T08:57:24.631Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>ferzrrn</td>
+<td class="selectedCol">12</td>
+<td>55</td>
+<td>2018-05-09T08:22:48.821Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>vovamyskiv</td>
+<td class="selectedCol">12</td>
+<td>18</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Koost</td>
+<td class="selectedCol">12</td>
+<td>16</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>glitchthrash</td>
+<td class="selectedCol">12</td>
+<td>19</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>loleq80</td>
+<td class="selectedCol">12</td>
+<td>14</td>
+<td>2018-04-02T17:27:19.273Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Eleftheria</td>
+<td class="selectedCol">11</td>
+<td>53</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>alise</td>
+<td class="selectedCol">11</td>
+<td>14</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>LoLotad</td>
+<td class="selectedCol">11</td>
+<td>24</td>
+<td>2017-12-25T11:28:37.830Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>_th3sister</td>
+<td class="selectedCol">11</td>
+<td>63</td>
+<td>2017-12-11T00:35:24.067Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>ayylmao_damen</td>
+<td class="selectedCol">10</td>
+<td>48</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>fru</td>
+<td class="selectedCol">10</td>
+<td>24</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>PsychoGoat</td>
+<td class="selectedCol">10</td>
+<td>13</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Betellgeuse</td>
+<td class="selectedCol">10</td>
+<td>30</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>SHUGAH</td>
+<td class="selectedCol">10</td>
+<td>21</td>
+<td>2018-04-25T00:22:11.125Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>VinDSL</td>
+<td class="selectedCol">9</td>
+<td>3</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Toadpipe</td>
+<td class="selectedCol">9</td>
+<td>0</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>TenzinKhan</td>
+<td class="selectedCol">9</td>
+<td>24</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Moclath</td>
+<td class="selectedCol">9</td>
+<td>18</td>
+<td>2018-06-02T17:09:48.179Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>TeenageNerdMan</td>
+<td class="selectedCol">9</td>
+<td>15</td>
+<td>2018-03-15T04:14:31.840Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>bruvclart</td>
+<td class="selectedCol">9</td>
+<td>3</td>
+<td>2018-03-15T04:14:31.840Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>den_drummer</td>
+<td class="selectedCol">8</td>
+<td>5</td>
+<td>2018-01-09T08:57:24.631Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>dday694</td>
+<td class="selectedCol">8</td>
+<td>44</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>arontjuh</td>
+<td class="selectedCol">8</td>
+<td>9</td>
+<td>2018-03-15T04:14:31.840Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>SirClassic</td>
+<td class="selectedCol">8</td>
+<td>20</td>
+<td>2017-10-14T00:15:19.319Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>RUSSIANROULETTE</td>
+<td class="selectedCol">8</td>
+<td>8</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Anonononon</td>
+<td class="selectedCol">7</td>
+<td>38</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>SycaiDefranco</td>
+<td class="selectedCol">7</td>
+<td>17</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Aras_Cade</td>
+<td class="selectedCol">7</td>
+<td>16</td>
+<td>2018-04-20T00:41:26.669Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>3mpty</td>
+<td class="selectedCol">7</td>
+<td>13</td>
+<td>2018-03-10T16:04:17.824Z</td>
+<td>null</td>
+
+</tr>
+<tr>
+  <td>theinfinite</td>
+<td class="selectedCol">6</td>
+<td>22</td>
+<td>2018-04-25T00:22:11.125Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>Prophessor</td>
+<td class="selectedCol">6</td>
+<td>36</td>
+<td>2018-01-13T05:42:06.219Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>DustySantana</td>
+<td class="selectedCol">6</td>
+<td>20</td>
+<td>2018-04-01T05:49:27.860Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>2312313</td>
+<td class="selectedCol">6</td>
+<td>23</td>
+<td>2018-04-29T17:32:51.298Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Dragunlucas</td>
+<td class="selectedCol">6</td>
+<td>15</td>
+<td>6/3/2018</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>IsraelLeite</td>
+<td class="selectedCol">6</td>
+<td>24</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>FujiwaraMokou</td>
+<td class="selectedCol">6</td>
+<td>17</td>
+<td>2017-09-05T04:10:02.052Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>Bezonian</td>
+<td class="selectedCol">6</td>
+<td>9</td>
+<td>2017-11-30T08:16:46.252Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>Im_Suddenly_Triggered</td>
+<td class="selectedCol">6</td>
+<td>8</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+
+    </table>
+    <table id="mostGrabs">
+      <tr class="tableHeaders">
+  <th>username</th>
+<th>wins</th>
+<th>total grabs</th>
+<th>last seen</th>
+<th>role</th>
+
+</tr>
+<tr>
+  <td>DJRevenant</td>
+<td>367</td>
+<td class="selectedCol">1683</td>
+<td>6/2/2018</td>
+<td>5615fa9ae596154a5c000000</td>
+
+</tr>
+<tr>
+  <td>DUSTY_MCDUSENBERG</td>
+<td>328</td>
+<td class="selectedCol">917</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>Inspector420</td>
+<td>511</td>
+<td class="selectedCol">724</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>TanyaOgr</td>
+<td>281</td>
+<td class="selectedCol">624</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>grendel462</td>
+<td>150</td>
+<td class="selectedCol">623</td>
+<td>2018-06-02T04:44:20.727Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>spanky</td>
+<td>62</td>
+<td class="selectedCol">613</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>playjoyx</td>
+<td>421</td>
+<td class="selectedCol">566</td>
+<td>6/2/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>DracusApollyonPhoenix</td>
+<td>97</td>
+<td class="selectedCol">447</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>flat</td>
+<td>84</td>
+<td class="selectedCol">433</td>
+<td>6/2/2018</td>
+<td>5615fd84e596150061000003</td>
+
+</tr>
+<tr>
+  <td>Zuzana</td>
+<td>275</td>
+<td class="selectedCol">377</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>CaliB</td>
+<td>142</td>
+<td class="selectedCol">350</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>LOISTAVA</td>
+<td>113</td>
+<td class="selectedCol">349</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Neoblackguard</td>
+<td>1093</td>
+<td class="selectedCol">330</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>TAYLORR</td>
+<td>142</td>
+<td class="selectedCol">327</td>
+<td>2018-06-02T17:09:48.179Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Reforced</td>
+<td>177</td>
+<td class="selectedCol">325</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Mozzle</td>
+<td>427</td>
+<td class="selectedCol">324</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Monstah</td>
+<td>35</td>
+<td class="selectedCol">317</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>edwin0259</td>
+<td>96</td>
+<td class="selectedCol">313</td>
+<td>6/3/2018</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>HowCanINotHentai</td>
+<td>62</td>
+<td class="selectedCol">278</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Yurei</td>
+<td>62</td>
+<td class="selectedCol">245</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>algarvitto</td>
+<td>160</td>
+<td class="selectedCol">182</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Citramon</td>
+<td>75</td>
+<td class="selectedCol">177</td>
+<td>2018-02-24T00:46:15.182Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>lionanisimov</td>
+<td>18</td>
+<td class="selectedCol">167</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Parden</td>
+<td>50</td>
+<td class="selectedCol">153</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>doodlewang</td>
+<td>50</td>
+<td class="selectedCol">142</td>
+<td>2018-04-17T07:54:26.139Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Giupatamon</td>
+<td>40</td>
+<td class="selectedCol">126</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Pop2222</td>
+<td>64</td>
+<td class="selectedCol">124</td>
+<td>2018-06-02T04:44:20.727Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>MarianCavlovic</td>
+<td>45</td>
+<td class="selectedCol">121</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>5615fd84e596150061000003</td>
+
+</tr>
+<tr>
+  <td>sheena1990</td>
+<td>25</td>
+<td class="selectedCol">116</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>Evellyn</td>
+<td>2</td>
+<td class="selectedCol">113</td>
+<td>2018-06-02T04:44:20.727Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>UntamedAnomaly</td>
+<td>92</td>
+<td class="selectedCol">105</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>ANDREW_S</td>
+<td>17</td>
+<td class="selectedCol">101</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>TrapsAintGay</td>
+<td>33</td>
+<td class="selectedCol">100</td>
+<td>2018-03-15T04:14:31.840Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>UnitedHell</td>
+<td>107</td>
+<td class="selectedCol">99</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>LadyAodhnait</td>
+<td>5</td>
+<td class="selectedCol">90</td>
+<td>6/3/2018</td>
+<td>null</td>
+
+</tr>
+<tr>
+  <td>Syntheract</td>
+<td>31</td>
+<td class="selectedCol">90</td>
+<td>2018-02-24T00:46:15.182Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>buckycarbon</td>
+<td>52</td>
+<td class="selectedCol">86</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Darkiss</td>
+<td>20</td>
+<td class="selectedCol">85</td>
+<td>2018-05-16T23:55:27.691Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>ZennaTiffany</td>
+<td>0</td>
+<td class="selectedCol">84</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>aldersees</td>
+<td>22</td>
+<td class="selectedCol">83</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>KannibleKlown</td>
+<td>76</td>
+<td class="selectedCol">77</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>jmart</td>
+<td>26</td>
+<td class="selectedCol">73</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>skippy01</td>
+<td>26</td>
+<td class="selectedCol">72</td>
+<td>2018-06-02T17:09:48.179Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>headietwo</td>
+<td>114</td>
+<td class="selectedCol">70</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>GabrielG.N</td>
+<td>50</td>
+<td class="selectedCol">66</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>_th3sister</td>
+<td>11</td>
+<td class="selectedCol">63</td>
+<td>2017-12-11T00:35:24.067Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>chuckleslovakia</td>
+<td>25</td>
+<td class="selectedCol">60</td>
+<td>2018-04-02T17:27:19.273Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>bimmyohara</td>
+<td>32</td>
+<td class="selectedCol">57</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>tay.justine</td>
+<td>18</td>
+<td class="selectedCol">56</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>ferzrrn</td>
+<td>12</td>
+<td class="selectedCol">55</td>
+<td>2018-05-09T08:22:48.821Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Zerro</td>
+<td>25</td>
+<td class="selectedCol">54</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Eleftheria</td>
+<td>11</td>
+<td class="selectedCol">53</td>
+<td>2018-05-26T01:12:24.743Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>JosephineLee</td>
+<td>32</td>
+<td class="selectedCol">52</td>
+<td>2017-12-25T11:28:37.830Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>Yung_Kanax</td>
+<td>18</td>
+<td class="selectedCol">50</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>MissT</td>
+<td>3</td>
+<td class="selectedCol">50</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>ayylmao_damen</td>
+<td>10</td>
+<td class="selectedCol">48</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>0ceanMan</td>
+<td>19</td>
+<td class="selectedCol">48</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>gorshok_umer</td>
+<td>26</td>
+<td class="selectedCol">47</td>
+<td>6/2/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Knightly</td>
+<td>15</td>
+<td class="selectedCol">46</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>dday694</td>
+<td>8</td>
+<td class="selectedCol">44</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>typeMARS</td>
+<td>23</td>
+<td class="selectedCol">42</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>queenofthekittys</td>
+<td>5</td>
+<td class="selectedCol">40</td>
+<td>2018-03-15T04:14:31.840Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Anonononon</td>
+<td>7</td>
+<td class="selectedCol">38</td>
+<td>2018-06-02T23:25:12.835Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Jaredgentry123</td>
+<td>20</td>
+<td class="selectedCol">38</td>
+<td>2017-12-18T02:18:23.702Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>MrHuman</td>
+<td>23</td>
+<td class="selectedCol">36</td>
+<td>6/3/2018</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Prophessor</td>
+<td>6</td>
+<td class="selectedCol">36</td>
+<td>2018-01-13T05:42:06.219Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>koiebee</td>
+<td>21</td>
+<td class="selectedCol">35</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Puffin</td>
+<td>5</td>
+<td class="selectedCol">35</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Chrislingen</td>
+<td>5</td>
+<td class="selectedCol">34</td>
+<td>2018-04-01T05:49:27.860Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>spasticbutterfree</td>
+<td>13</td>
+<td class="selectedCol">31</td>
+<td>2017-11-06T23:45:55.499Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>solstitialcold</td>
+<td>24</td>
+<td class="selectedCol">31</td>
+<td>2018-02-19T02:21:54.338Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>Betellgeuse</td>
+<td>10</td>
+<td class="selectedCol">30</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>GotShrimpBoi</td>
+<td>5</td>
+<td class="selectedCol">27</td>
+<td>2018-01-27T01:21:53.469Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>Mousecel</td>
+<td>13</td>
+<td class="selectedCol">27</td>
+<td>2018-04-01T05:49:27.860Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>BookBird</td>
+<td>14</td>
+<td class="selectedCol">25</td>
+<td>2018-05-28T17:14:40.795Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>fru</td>
+<td>10</td>
+<td class="selectedCol">24</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>LoLotad</td>
+<td>11</td>
+<td class="selectedCol">24</td>
+<td>2017-12-25T11:28:37.830Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>TenzinKhan</td>
+<td>9</td>
+<td class="selectedCol">24</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>IsraelLeite</td>
+<td>6</td>
+<td class="selectedCol">24</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Kurotsuno</td>
+<td>1</td>
+<td class="selectedCol">23</td>
+<td>6/2/2018</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>2312313</td>
+<td>6</td>
+<td class="selectedCol">23</td>
+<td>2018-04-29T17:32:51.298Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>theinfinite</td>
+<td>6</td>
+<td class="selectedCol">22</td>
+<td>2018-04-25T00:22:11.125Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>AryaxZ</td>
+<td>30</td>
+<td class="selectedCol">22</td>
+<td>2018-05-16T23:55:27.691Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Timberg</td>
+<td>5</td>
+<td class="selectedCol">22</td>
+<td>2018-02-13T22:42:04.965Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Rayadito</td>
+<td>3</td>
+<td class="selectedCol">21</td>
+<td>2018-01-27T01:21:53.469Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>SHUGAH</td>
+<td>10</td>
+<td class="selectedCol">21</td>
+<td>2018-04-25T00:22:11.125Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>DustySantana</td>
+<td>6</td>
+<td class="selectedCol">20</td>
+<td>2018-04-01T05:49:27.860Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>SirClassic</td>
+<td>8</td>
+<td class="selectedCol">20</td>
+<td>2017-10-14T00:15:19.319Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>glitchthrash</td>
+<td>12</td>
+<td class="selectedCol">19</td>
+<td>2018-05-09T04:58:40.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>vovamyskiv</td>
+<td>12</td>
+<td class="selectedCol">18</td>
+<td>2018-06-02T02:08:37.472Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>goht</td>
+<td>4</td>
+<td class="selectedCol">18</td>
+<td>2018-04-25T00:22:11.125Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>nonvoyezme</td>
+<td>3</td>
+<td class="selectedCol">18</td>
+<td>2018-05-23T23:42:10.610Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>Moclath</td>
+<td>9</td>
+<td class="selectedCol">18</td>
+<td>2018-06-02T17:09:48.179Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>iotadart</td>
+<td>3</td>
+<td class="selectedCol">17</td>
+<td>2018-05-31T01:17:16.431Z</td>
+<td>52d1ce33c38a06510c000001</td>
+
+</tr>
+<tr>
+  <td>pmys</td>
+<td>3</td>
+<td class="selectedCol">17</td>
+<td>2017-11-30T08:16:46.252Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>LiuseRooney</td>
+<td>1</td>
+<td class="selectedCol">17</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615fe1ee596154fc2000001</td>
+
+</tr>
+<tr>
+  <td>SycaiDefranco</td>
+<td>7</td>
+<td class="selectedCol">17</td>
+<td>2018-03-23T17:49:27.238Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+<tr>
+  <td>8.29</td>
+<td>1</td>
+<td class="selectedCol">17</td>
+<td>2017-09-30T19:27:26.548Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>FujiwaraMokou</td>
+<td>6</td>
+<td class="selectedCol">17</td>
+<td>2017-09-05T04:10:02.052Z</td>
+<td>not found</td>
+
+</tr>
+<tr>
+  <td>drumloaf</td>
+<td>1</td>
+<td class="selectedCol">17</td>
+<td>2018-01-30T03:50:49.554Z</td>
+<td>5615feb8e596154fc2000002</td>
+
+</tr>
+
+    </table>
+    <script src="users.js"></script>
   </body>
-  <script>
-    var content = document.querySelector(".content");
-    var sort = document.querySelector(".sort");
-    //var ls = document.getElementById("ls");
-    var w = document.getElementById("w");
-    var tg = document.getElementById("tg");
-    sort.style.display = "none";
-    var stats;
-
-    var client = new XMLHttpRequest();
-    client.open('Get', './users.json')
-    client.onreadystatechange = function() {
-      stats = JSON.parse(client.responseText);
-      for(x in stats) {
-        delete stats[x].lastSeen;
-      }
-      content.innerText = "";
-      content.append(JSON.stringify(stats, null, 2))
-      sort.style.display = "block";
-    }
-    client.send();
-
-    /*ls.addEventListener("click", function() {
-      
-      var lastSeenKeys = Object.keys(stats).sort((a, b) => {
-          return (stats[a].lastSeen < stats[b].lastSeen) ? -1 : ((stats[a].lastSeen > stats[b].lastSeen) ? 1 : 0);
-      })
-      var final = {};
-      for(x = 0; x < lastSeenKeys.length; x++) {
-        final[lastSeenKeys[x]] = stats[lastSeenKeys[x]];
-      }
-
-      content.innerText = "";
-      content.append(JSON.stringify(final, null, 2));
-    });*/
-
-    w.addEventListener("click", function() {
-      var topWinKeys = Object.keys(stats).sort((a, b) => {
-          return stats[b].wins - stats[a].wins
-      })
-      var final = {};
-      for(x = 0; x < topWinKeys.length; x++) {
-        final[topWinKeys[x]] = stats[topWinKeys[x]];
-      }
-      content.innerText = "";
-      content.append(JSON.stringify(final, null, 2));
-    });
-
-    tg.addEventListener("click", function() {
-      Object.keys(stats).map(user => {
-        stats[user].totalGrabs = stats[user].totalGrabs || 0;
-      })
-      let topTopGrabKeys = Object.keys(stats).sort((a, b) => {
-          return stats[b].totalGrabs - stats[a].totalGrabs
-      })
-
-      var final = {};
-      for(x = 0; x < topTopGrabKeys.length; x++) {
-        final[topTopGrabKeys[x]] = stats[topTopGrabKeys[x]];
-      }
-      content.innerText = "";
-      content.append(JSON.stringify(final, null, 2));
-    })
-    //body.append(guestbook, null, 2);
-  </script>
 </html>

@@ -89,6 +89,6 @@ table tr:nth-child(odd) {
   background: orange;
 }
 
-#mostGrabbed, #hotPlays {
+#mostGrabbed, #hotPlays, #mostWins, #mostGrabs {
   display: none;
 }

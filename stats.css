@@ -85,10 +85,10 @@ table tr:nth-child(odd) {
   box-shadow: inset 1px 1px 1px white, inset -1px -1px 1px black;
 }
 
-#mostPlayedBtn {
+#mostPlayedBtn, #mostWinsBtn {
   background: orange;
 }
 
-#mostGrabbed, #hotPlays, #mostWins, #mostGrabs {
+#mostGrabbed, #hotPlays, #mostGrabs {
   display: none;
 }

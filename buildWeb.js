@@ -81,9 +81,9 @@ function buildWebsite(playData, mostGrabData, hotPlayData, userWinData, userGrab
   </head>
   <body>
     <div class="header">
-      <div class="imageContainer">
+      <a class="imageContainer" href="https://edwin0259.github.io/bot/">
         <image class="logo" src="./images/dubLogo.jpg"/>
-      </div>
+      </a>
       <h1>Limitless Statistics</h1>
       <small class="lastUpdated">Last Updated: ${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}</small>
     </div>
@@ -116,9 +116,9 @@ usersTemplate =
   </head>
   <body>
     <div class="header">
-      <div class="imageContainer">
+      <a class="imageContainer" href="https://edwin0259.github.io/bot/">
         <image class="logo" src="./images/dubLogo.jpg"/>
-      </div>
+      </a>
       <h1>Limitless Users</h1>
       <small class="lastUpdated">Last Updated: ${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}</small>
     </div>

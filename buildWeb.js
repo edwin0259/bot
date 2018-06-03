@@ -12,7 +12,7 @@ function genTableData(res, keyMatch) {
     let headerData = "";
     let data = "";
     for(let key in res[0]) {
-      if(["id"].includes(key)) continue;
+      if(["id", "lastSeen"].includes(key)) continue;
       key = key.split(/(?=[A-Z])/).join(" ").toLowerCase();
       headerData += `<th>${key}</th>\n`;
     }
@@ -25,7 +25,7 @@ function genTableData(res, keyMatch) {
     res.forEach(item => {
       let itemData = ""
       for(let key in item) {
-        if(["id"].includes(key)) continue;
+        if(["id", "lastSeen"].includes(key)) continue;
         
         itemData += (key == keyMatch) ? `<td class="selectedCol">${item[key]}</td>\n` : `<td>${item[key]}</td>\n`;
       }

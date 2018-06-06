@@ -377,7 +377,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                 bot.sendChat("Refreshing, brb :wave:");
                 setTimeout(exit, 5000);
             }
-            if(message == "!build" && user == "edwin0259") {
+            if(message == "!build" && approveUser(user)) {
                 bot.sendChat("Building Website..");
                 console.log(`BUILDING WEBSITE, TRIGGERED BY: ${user}`)
                 setTimeout(buildWebsite, 10000);

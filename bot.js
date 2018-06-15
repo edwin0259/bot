@@ -193,8 +193,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                     plays = res[0].plays;
                     mostGrabs = (tgs > res[0].mostGrabs) ? tgs : res[0].mostGrabs;
                     
-                    tgs += res[0].totalGrabs;
-                    connection.query(`UPDATE songs SET plays=${plays + 1}, totalGrabs=${tgs}, mostGrabs=${mostGrabs} WHERE id="${id}"`)
+                    connection.query(`UPDATE songs SET plays=${plays + 1}, totalGrabs=${res[0].totalGrabs + tgs}, mostGrabs=${mostGrabs} WHERE id="${id}"`)
                 } else {
                     plays = (callback != null) ? 0 : 1;
                     queryString = `INSERT INTO songs VALUES("${id}", ${plays}, ${tgs}, "${name.replace(/"/g, '\\"')}", "${type}", "${fkid}", ${tgs})`;
@@ -476,6 +475,10 @@ function main(youtubeKey, dbPassword, botPassword) {
                 return bot.hasPermission(bot.getUserByName(u), "ban");
             }
 
+            function approveManagerPlus(u) {
+                return bot.hasPermission(bot.getUserByName(u), 'set-roles');
+            }
+
             function monthDiff(d1, d2) {
                 var months;
                 months = (d2.getFullYear() - d1.getFullYear()) * 12;
@@ -590,67 +593,52 @@ function main(youtubeKey, dbPassword, botPassword) {
                 }
             }
 
-            if(message.includes("!lastseenlist") && message.split(' ')[0] == "!lastseenlist" && (approveUser(user) || user == "edwin0259")) {
-
-            }
-
-            if(message.includes("!lastseenlist") && approveUser(user)) {
-                bot.sendChat("Not available temporarily.");
-                return
-                let staff = ["iotadart","kessu","sheena1990","aldersees","sharp","alise","Swivy","Kyuto","theinfinite","Inspector420","FruitKake","DUSTY_MCDUSENBERG","Neoblackguard","spanky","DracusApollyonPhoenix","maestroBot","DJRevenant - C","DJRevenant - C","DJRevenant - C","flat","the1xman","MarianCavlovic","Mozzle","bimmyohara","solstitialcold","Syntheract","ANDREW_S","fru","lia","Puffin","esoteric","tripster","AdvaGoldfreind","Monstah","LiuseRooney","Yung_Kanax","Eleftheria","Ganjaman","Rayadito","tay.justine","Giupatamon","grendel462","HowCanINotHentai","DB-Cooper","Darkiss","LOISTAVA","Reforced","Zuzana","queenofthekittys","TanyaOgr","Zerro","TAYLORR","UnitedHell","Citramon","Yurei","playjoyx","noaltcodessadface","KannibleKlown","cloudysierra","314ro","skippy01","Risblood","Lili","lashundra","SeaCucumber","dp","davd2017","funkynoiz","inthefade","ZennaTiffany","slyconrad","ibi","Kurotsuno","domshoe","epicnate98","testiculartorsion","Kaebsong","Riyuuta","Clifford","Sharonne","hadone","fork","Nieknuggets","grimmusic","arontjuh","TheBiggestBoss","platypus","Teamp","GXLLX","AspirationDeath","Akiruru","Dionisio","Nibzy","ferzrrn","Grimantis","djarkanoid","trunkbass","misaki","1029chrisB","EMPTYCage","HappyHarold","Denski","wwaavvyy","ufuksarp","tewcurll","bubu2bubu","visualkitten","hellcat","_brandon_","sirpansylot","lCookiesl","Papapoof","pmys","seanmcswiggan","RidingSerena","TwelveShillings","30thCenturyMan","its_david_again","dday694","HerrZafft","Mousecel","Herbie","moistcarrot","Aslin","joshlmao","latadelixo","PotatoBread23","J3THUsoldier","Here2fukuupm8","NotJuan","TheDirtyRomancer","Tooqie1","puggarooreid","ZarUnity","Timberg","LUGUBRIOUS","Ukam","shiltoner","TheDoctorPandass","Anonononon","IxVingPk","sleeping_moose","Asllani","DarthNihilus","farnmut","Aphelion","Sextans","SierraBeach","qwre9","Crimsonze","ItsMeJunior","Stickstack","pastorkoala_mmango","Spectres","LifeSav3r","LordDilip","0ceanMan","Azatha","GandalfTheMetal","Pulltheleverkronk2266","Adylas","Mordecaii","thomascookiehead","Violator","HellcatHijinx","nuit","Josh_15","Atrocity_","isChachi","hydroknight","RaFaXfLaSh","Music","ThePinkMoon","SaikaTotsuka","GabrielG.N","orangicle","Moonrasor","Mirindiba","genderAss00mer","zero_ataraxia","ayylmao_damen","TacticalTracer","doodlewang","SCOOPS","Angkasawan","King_Satanas_Holokaustos","PsychoGoat","nightowlsociety","HiBEARnation","lurd","GotShrimpBoi","EFoE","Mario_bro","Doniel","FraggleRock","Johrm","sonicstaff","Sweet__Leaf","JosephineLee","koiebee","ZafkiElohim","FuzzyFoofi","mystem","wowoopwoopwo","ciri","MaxChandeliers","nonvoyezme","Samsus","spasticbutterfree","poent","JoJosfanboy","ModestyBlaise","Dragunlucas","MrMe","Theuso","Plati","MathR.","FedericoReali","Mathmaticcs","Douchebag","F0x3r","Guimaroes","Evellyn","JohnRoth","mrmcpunchface","KingkoPop","knaet","LoLotad","GabrielSunlight","MyFeetAreCute","Deepcold","KeyOst","teamdippy4lyfe","GarlandChaos","prazision","mouveon","TOYSTHATK1LL","laspelotastristes","FukuCuku","Mieko","RAW-Hardstyle","Unseen_Charmer","OreoSpeedwgn","solaar","Moclath","Rivalry","babalin","SHUGAH","Pop2222","chuckleslovakia","KySoon","SkyFlare","Achyrashi","averagedork255","_th3sister","DinduMuffins","SycaiDefranco","UntamedAnomaly","STLTH","TrapsAintGay","Mokou","FujiwaraMokou","http.bry","DNE","Y.Ho","8.29","Lazyabe","Prophessor","AfluxD","DakotaSpalsbury","McBigMouse","Honkey","Arrikii","LehFez","Habacuc","Aclion","WickedDeathKilla","loleq80","boots-n-pants-n-boots-n-pants","IsraelLeite","Kajakoro","Bezonian","MadNESS_","Leilaila","Nel","jmart","TenzinKhan","den_drummer","2312313","vlastelin","Alexsa","RedneckPieceOfWhiteTrash","nelo","MissT","GustavForsbergZ1","UltraliteBeamz","Kanari","LeticiaBelm","Mr.Cornflakes","lionanisimov","sigmundvoid","Kthulhu","NaneekMot","Fazerina","Betellgeuse","drumloaf","Balonso","Ahiru","Parden"];
-                let months = message.split(' ')[1];
-                console.log()
-                let found = false;
-                fs.readFile('./users.json',"utf8", (err, data) => {
-                    let users = JSON.parse(data);
-                    let usersFound = [];
-                    for(x in users) {
-                        let diff = monthDiff(new Date(users[x].lastSeen), new Date());
-                        if(diff >= months && staff.includes(users[x].username)) {
-                            usersFound.push(users[x].username);
-                            console.log(users[x].username, monthDiff(new Date(users[x].lastSeen), new Date()));
-                            found = true;
-                        }
-                    }
-                    if(found == false) {
-                        bot.sendChat("No users found.");
+            if(message.includes("!removerole") && (approveManagerPlus(user) || user == "edwin0259")) {
+                let queryUser = message.split(' ')[1];
+                connection.query(`SELECT * FROM users WHERE username="${queryUser}";`, (err, res, fields) => {
+                    if(res.length != 0) {
+                        connection.query(`UPDATE users SET role="null" WHERE username="${queryUser}"`);
+                        bot.sendChat(`Set role for ${queryUser} to null`);
                     } else {
-                        
-                        bot.openPM(bot.getUserByName(user).id,(data) => {
-                            bot.sendPM(data.id, `Found ${usersFound.length} users: \n` + usersFound.join("\n, "));
-                        })
+                        bot.sendChat("User not found.");
                     }
                 })
             }
 
-            if(message.includes("!lastseen") && message.split(' ').length == 2 && message.split(' ')[0] == "!lastseen" && (approveUser(user) || user == "edwin0259")) {
-                bot.sendChat("Not available temporarily.");
-                return
-                let u = message.split(' ')[1];
-                let found = false;
-                fs.readFile('./users.json',"utf8", (err, data) => {
-                    let users = JSON.parse(data);
-                    let usersFound = [];
-                    for(x in users) {
-                        if(users[x].username == u) {
-                            usersFound.push(users[x]);
-                            found = true;
-                        }
+            if(message.includes("!lastseenlist") && approveUser(user)) {
+                let months = message.split(' ')[1];
+                let usersFound = [];
+                connection.query(`SELECT * FROM users WHERE role LIKE "5%";`, (err, res, fields) => {
+                    if(res.length != 0) {
+                        res.forEach(u => {
+                            let diff = monthDiff(new Date(u.lastSeen), new Date());
+                            if(diff >= months) {
+                                usersFound.push(u.username);
+                            }
+                        })
                     }
-                    if(found == false) {
-                        bot.sendChat("User not found.");
+
+                    if(!usersFound.length) {
+                        bot.sendChat("No users found.");
                     } else {
-                        let mes = ""
-                        usersFound.forEach(queryUser => {
-                            console.log("FOUND");
-                            date = new Date(queryUser.lastSeen);
-                            mes += `${queryUser.username} was last seen ${
+                        bot.openPM(bot.getUserByName(user).id, data => bot.sendPM(data.id, `Found ${usersFound.length} users (Out of ${res.length} staff members): \n${usersFound.join("\n, ")}`));
+                    }
+                })
+            }
+
+            if(message.includes("!lastseen") && message.split(' ').length == 2 && message.split(' ')[0] == "!lastseen" && approveUser(user)) {
+                let queryUser = message.split(' ')[1];
+                let mes = "";
+                connection.query(`SELECT * FROM users WHERE username="${queryUser}";`, (err, res, fields) => {
+                    if(res.length != 0) {
+                        res.forEach(u => {
+                            date = new Date(u.lastSeen);
+                            mes += `${u.username} was last seen ${
                                     date.getFullYear().toString() + "-" + (date.getMonth()+1).toString() + "-" + date.getDate().toString()}, `
                         })
-                        bot.openPM(bot.getUserByName(user).id,(data) => {
-                            bot.sendPM(data.id, `Found ${usersFound.length} users: ` + mes);
-                        })
                     }
+
+                    bot.openPM(bot.getUserByName(user).id, data => bot.sendPM(data.id, `Found ${res.length} users: ` + mes));
                 })
             }
             
@@ -666,9 +654,6 @@ function main(youtubeKey, dbPassword, botPassword) {
                 bot.sendChat("You need to specify a username after lastseen.");
             }
 
-            if(message.includes("!lastseen") && message.split(' ').length == 2 && message.split(' ')[0] == "!lastseen" && !approveUser(user) && user != "edwin0259") {
-                bot.sendChat("Not authorized");
-            }
             if(checkMessage("!qs")) {
                 fs.readFile('./tempStats.json',"utf8", (err, data) => {
                     let stats = JSON.parse(data);

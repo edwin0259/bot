@@ -368,6 +368,12 @@ function main(youtubeKey, dbPassword, botPassword) {
                 getStats(id, idSelected);
             }
 
+            if(message.includes("!clone") && user == "edwin0259") {
+                //bot.sendChat("Cloning...")
+                console.log("!clone");
+                console.log("CLONING")
+            }
+
             if(message.includes("!ping") && user == "edwin0259") {
                 ping();
             }
@@ -421,10 +427,11 @@ function main(youtubeKey, dbPassword, botPassword) {
                 });
             }
 
-            if(message.includes("!info") && user == "edwin0259") {
-                let usr = bot.getUserByName(message.split(' ')[1]);
-                getUser(usr);
-            }
+            // Get info of another user, causes error if just !info for me..
+            //if(message.includes("!info") && user == "edwin0259") {
+            //    let usr = bot.getUserByName(message.split(' ')[1]);
+            //    getUser(usr);
+            //}
 
             if(message == "!info") {
                 let queryUser = user;

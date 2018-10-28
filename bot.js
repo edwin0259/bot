@@ -174,12 +174,6 @@ function main(youtubeKey, dbPassword, botPassword) {
             } else {
                 setTimeout(() => {shouldUpDub(true)}, 10000);
             }
-
-            //if(new Date().getMonth() != month) {
-                //month = new Date().getMonth();
-                //updateMonthlyCommands();
-                //bot.sendChat("Featured commands have been updated.");
-            //}
         }
 
         function updateSong(songObj, djObj, callback=null) {

@@ -7,6 +7,7 @@ const buildWeb = require('./buildWeb.js');
 let baseCommands = {};
 let mode = "normal";
 let month = new Date().getMonth();
+let pastQueueUsers = [] // afk detection
 
 fs.readFile("./keys.json", "utf8", (err, data) => {
     let keys = JSON.parse(data);
@@ -163,7 +164,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                     if(!activeUsers.get(currentDJ.id)) {
                         activeUsers.set(currentDJ.id, {name: currentDJ.username, time: new Date})
                     };
-                    
+                    afkDetection()
                     bot.updub();
                     currentId = id;
 
@@ -313,6 +314,34 @@ function main(youtubeKey, dbPassword, botPassword) {
                     bot.sendChat("Song was not found.");
                 }
             });
+        }
+
+         function afkDetection() {
+            // Detects if new users have joined the queue and will remove them as afk if so
+            currentQueueUsers = []
+            bot.getQueue().map(item => {
+                currentQueueUsers.push(item.user.id);
+            },[]);
+            //console.log(currentQueueUsers)
+            //console.log(pastQueueUsers)
+
+            if (!pastQueueUsers.length) {
+                pastQueueUsers = currentQueueUsers
+            } else {
+                newUsers = []
+                currentQueueUsers.map(u => pastQueueUsers.indexOf(u) == -1 ? newUsers.push(u) : null)
+                console.log(newUsers)
+                if(newUsers.length != 0) {
+                    newUsers.forEach(uid => {
+                        usr = bot.getUser(uid)
+                        activeUsers.set(uid, {name: usr.username, time: new Date()})
+                        console.log(`${usr.username} joined the queue`)
+                        console.log(activeUsers)
+                        updateUser(usr)
+                    })
+                    pastQueueUsers = currentQueueUsers
+                }
+            }
         }
         
         function respondToMessage(message, user, cid) {
@@ -472,6 +501,10 @@ function main(youtubeKey, dbPassword, botPassword) {
                 setTimeout(endRoulette, 60000);
             }
 
+            if(checkMessage("!new")) {
+                afkDetection()
+            }
+
             function approveUser(u) {
                 return bot.hasPermission(bot.getUserByName(u), "ban");
             }
@@ -580,6 +613,7 @@ function main(youtubeKey, dbPassword, botPassword) {
                     });
                     
                     let names = activeUsers.forEach(u => {
+                        console.log(u)
                         let afkTime = (new Date - u.time) / 1000;
                         if(afkTime > (3600 * hours)) {
                             afkUsers.push(u.name);

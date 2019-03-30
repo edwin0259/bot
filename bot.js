@@ -272,7 +272,7 @@ function main(youtubeKey, dbPassword, botPassword) {
 
         function ping() {
             connection.query(`SELECT * FROM pings WHERE entity="maestro"`, (err, res, fields) => {
-                bot.sendChat(`Ping: ${res[0].ping + 1}`);
+                bot.sendChat(`Pong: ${res[0].ping + 1}`);
                 if(res.length != 0) connection.query(`UPDATE pings SET ping=${res[0].ping + 1} WHERE entity="maestro"`);
             });
         }

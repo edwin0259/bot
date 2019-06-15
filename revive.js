@@ -35,6 +35,14 @@ function live() {
         console.log(limbo);
       }
 
+      if(data.includes("stderr: { Error: getaddrinfo ENOTFOUND api.dubtrack.fm api.dubtrack.fm:443")) {
+        console.log("CRITICAL ERROR FOUND");
+        //newBot.unref();
+        bot.stdin.end();
+        bot.kill();
+        delete(bot);
+      }
+
       if(data.includes("!clone")) {
         console.log("Cloning");
         live();
@@ -45,7 +53,16 @@ function live() {
       console.log(`stderr: ${data}`);
     });
 
-    bot.on('error', err => console.log(`err: ${err}`));
+    bot.on('error', err => {
+      console.log(`err: ${err}`)
+      if(err.toString().includes("stderr: { Error: getaddrinfo ENOTFOUND api.dubtrack.fm api.dubtrack.fm:443")) {
+        console.log("CRITICAL ERROR FOUND, ERR");
+        //newBot.unref();
+        bot.stdin.end();
+        bot.kill();
+        delete(bot);
+      }
+    });
     bot.on('close', function(code) {
       console.log(`CLOSED: ${code}, restarting..`);
       bot.stdin.end();

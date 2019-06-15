@@ -215,6 +215,7 @@ function main(youtubeKey, dbPassword, botPassword) {
         let time = times[Math.floor(Math.random() * times.length)];
         setTimeout(() => { startRoullete() }, time);
         function startRoullete() {
+            console.log("ROULETTE INITIALIZED")
             if(mode == "normal") {
                 bot.sendChat("@maestroBot !r");
             }
@@ -336,7 +337,8 @@ function main(youtubeKey, dbPassword, botPassword) {
                         usr = bot.getUser(uid)
                         activeUsers.set(uid, {name: usr.username, time: new Date()})
                         console.log(`${usr.username} joined the queue`)
-                        console.log(activeUsers)
+                        // ACTIVE USERS SEEMS BROKEN, FIX THIS
+                        //console.log(activeUsers)
                         updateUser(usr)
                     })
                     pastQueueUsers = currentQueueUsers
@@ -348,6 +350,7 @@ function main(youtubeKey, dbPassword, botPassword) {
             let bot_response = false;
             let userInfo = bot.getUserByName(user);
             activeUsers.set(userInfo.id, {name: user, time: new Date()})
+            console.log(message); // DEBUGGING
             function checkMessage(command) {
                 if(message.includes(command) && message.includes(`@${un}`) && bot_response == false && (user == "edwin0259" || user == "maestroBot")) {
                     return true;
@@ -433,7 +436,9 @@ function main(youtubeKey, dbPassword, botPassword) {
                     }
                 });
             }
-            
+            //if(message == "!err") { // CRITICAL ERROR TESTING
+            //    bot.sendChat("stderr: { Error: getaddrinfo ENOTFOUND api.dubtrack.fm api.dubtrack.fm:443");
+            //}
             
 
             if(message == "!hotplays") {
@@ -496,6 +501,7 @@ function main(youtubeKey, dbPassword, botPassword) {
 
             if(checkMessage("!r")) {
                 roullete = true;
+                console.log("ROULETTE STARTING")
                 bot.sendChat("@djs The roulette is starting! Have a song queued and type anything in chat to enter the roulette!");
                 
                 setTimeout(endRoulette, 60000);
@@ -579,7 +585,6 @@ function main(youtubeKey, dbPassword, botPassword) {
             }
             
             // !cq stands for clear queue, this will clear the bots queue.
-            if(checkMessage )
             if(checkMessage("!cq")){
                 console.log(`cleared by ${user}`);
                 
